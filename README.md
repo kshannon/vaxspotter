@@ -1,24 +1,38 @@
-# README
+# Vaxspotter
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The is an application to help identify open and available Covid-19 vaccine appointments in San Diego county. Hopefully this can become a working template to be used in other locations.
 
-Things you may want to cover:
+by [Kyle Shannon](https://www.kmshannon.com/).
 
-* Ruby version
+## License
 
-* System dependencies
+*raise todo: probably MIT or apache*
 
-* Configuration
+## Getting started
 
-* Database creation
+**ruby '2.7.1'**
+**rails '6.1.13'**
 
-* Database initialization
+To get started, clone the repo and install the needed gems. Migrate the database and run the test suite for verification:
 
-* How to run the test suite
+```
+$ bundle install --without production
+$ rails db:migrate
+$ rails test
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Next, run the app in your local server:
 
-* Deployment instructions
+```
+$ rails s
+```
 
-* ...
+Finally, run the test suite to verify that everything is working correctly:
+
+```
+$ rails test
+```
+
+Services and deployment instructions:
+
+*raise todo*
