@@ -1,4 +1,4 @@
-# Vaxspotter
+# VaxSpotter
 
 The is an application to help identify open and available Covid-19 vaccine appointments in San Diego county. Hopefully this can become a working template to be used in other locations.
 
@@ -36,3 +36,8 @@ $ rails test
 Services and deployment instructions:
 
 *raise todo*
+
+## Acknowledgements
+
+Inspired by the [TurboVax](https://www.turbovax.info/) project in New York City.
+
