@@ -6,11 +6,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'stylesheet', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="font-sans antialiased text-gray-900 bg-white">
+    <%= render partial: "shared/header" %>
+    <div class="py-4 sm:py-8">
+      <%= yield %>
+    </div>
+    <%= render partial: "shared/footer" %>
   </body>
 </html>
