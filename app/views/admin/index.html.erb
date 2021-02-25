@@ -1,0 +1,5 @@
+<h1>admin stuff here</h1>
+
+<% if session[:current_user] %>
+  <li><%= link_to 'Log OUT', logout_sessions_path %></li>
+<% end %>
