@@ -6,7 +6,7 @@
 require("@rails/ujs").start()
 require("turbolinks").start()
 
-import '../styles/styles';
+// import '../styles/styles';
 
 require("@rails/activestorage").start()
 require("channels")
