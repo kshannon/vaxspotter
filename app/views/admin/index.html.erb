@@ -2,9 +2,16 @@
 
 <% if session[:current_user] %>
   <div class="pt-6">
-    <button class="">
-      <%= link_to 'Log OUT', logout_sessions_path, class: "group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"  %>
+    <button class="pb-6">
+      <%= link_to 'Log Out', logout_sessions_path, class: "group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"  %>
     </button>
+
+    <%= button_to "Test Tweet", test_tweet_path, class: "group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %> 
+    <%
+=begin%>
+ <%= button_to "Test Tweet", "/auth/twitter/callback", method: :post, class: "group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %> 
+<%
+=end%>
   </div>
 <% end %>
 

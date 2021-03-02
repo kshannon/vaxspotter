@@ -5,18 +5,5 @@
 
 require("@rails/ujs").start()
 require("turbolinks").start()
-
-// import '../styles/styles';
-
 require("@rails/activestorage").start()
 require("channels")
-
-// import Rails from "@rails/ujs"
-// import Turbolinks from "turbolinks"
-// import * as ActiveStorage from "@rails/activestorage"
-// import "channels"
-
-
-// Rails.start()
-// Turbolinks.start()
-// ActiveStorage.start()

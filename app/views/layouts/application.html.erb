@@ -11,6 +11,11 @@
   </head>
 
   <body class="font-sans antialiased text-gray-900 bg-white">
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
     <%= render partial: "shared/header" %>
     <div class="py-4 sm:py-8">
       <%= yield %>

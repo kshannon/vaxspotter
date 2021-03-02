@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
 
     if @site_user.login_valid?
       session[:current_user] = true
+      flash[:notice] = "Log In Success!"
       redirect_to '/admin'
     else
       @site_user.password = nil
@@ -20,9 +21,16 @@ class SessionsController < ApplicationController
       render 'new'
     end
   end
+
+  protected
+
+  def auth_hash
+    request.env['omniauth.auth']
+  end
   
   def logout
     reset_session
+    # flash[:success] = "Sucessfully logged out!"
     redirect_to root_path
   end
 end
