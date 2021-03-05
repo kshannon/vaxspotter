@@ -8,7 +8,16 @@ Rails.application.routes.draw do
     end
   end
 
+
+  scope '/admin' do
+    resources :locations
+    post "new_location", to: 'locations#create'
+  end
+
   post 'test_tweet' => 'twitter#test_tweet', as: :test_tweet
+
+
+
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'admin' => 'admin#index'

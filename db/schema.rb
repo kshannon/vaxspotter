@@ -10,9 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_03_04_154411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "address", null: false
+    t.string "city"
+    t.boolean "is_active", default: true
+    t.boolean "is_walk_thru", default: false
+    t.boolean "is_drive_thru", default: false
+    t.string "appointment_url", null: false
+    t.string "managed_by"
+    t.string "contact_email"
+    t.string "contact_phone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end

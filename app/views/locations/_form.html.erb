@@ -1,0 +1,112 @@
+  <%= form_with model: @location do |form| %>
+  <div class="flex flex-col">
+    <% if @location.errors.any? %>
+      <div class="p-4 bg-red-200 text-red-800 rounded">
+        <h3 class="font-semibold pb-1">Please resolve the following errors:</h3>
+        <% @location.errors.full_messages.each do |message| %>
+          <div class="mt-1"><%= message %></div>
+        <% end %>
+      </div>
+    <% end %>
+
+  <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+
+    <div class="sm:col-span-6 pb-3">
+      <label for="name" class="block text-sm font-medium text-gray-700">
+        Name <i class="text-blue-500">required</i>
+      </label>
+      <div class="mt-1">
+        <%= form.text_field :name, class: "py-2 px-1 border border-gray-300 rounded-md focus:bg-gray-200 shadow block w-full sm:text-sm" %>
+      </div>
+    </div>
+
+    <div class="sm:col-span-6 pb-3">
+      <label for="address" class="block text-sm font-medium text-gray-700">
+        Address <i class="text-blue-500">required</i>
+      </label>
+      <div class="mt-1">
+        <%= form.text_field :address, placeholder: "1234 Some Address St. San Diego, CA 92109", class: "py-2 px-1 border border-gray-300 rounded-md focus:bg-gray-200 shadow block w-full sm:text-sm" %>
+      </div>
+    </div>
+
+    <div class="sm:col-span-6 pb-3">
+      <label for="city" class="block text-sm font-medium text-gray-700">
+        City
+      </label>
+      <div class="mt-1">
+        <%= form.text_field :city, placeholder: "Del Mar", class: "py-2 px-1 border border-gray-300 rounded-md focus:bg-gray-200 shadow block w-full sm:text-sm" %>
+      </div>
+    </div>
+
+    <div class="sm:col-span-6 pb-3">
+      <label for="appointment_url" class="block text-sm font-medium text-gray-700">
+        Appointment URL <i class="text-blue-500">required</i>
+      </label>
+      <div class="mt-1">
+        <%= form.text_field :appointment_url, placeholder: "https://www.schedule-appointment-with-us.com/parameters", class: "py-2 px-1 border border-gray-300 rounded-md focus:bg-gray-200 shadow block w-full sm:text-sm" %>
+      </div>
+    </div>
+
+    <div class="sm:col-span-6 pb-3">
+      <label for="managed_by" class="block text-sm font-medium text-gray-700">
+        Location Managed By (e.g. City of San Diego, Kaiser Health, or UCSD, etc.)
+      </label>
+      <div class="mt-1">
+        <%= form.text_field :managed_by, class: "py-2 px-1 border border-gray-300 rounded-md focus:bg-gray-200 shadow block w-full sm:text-sm" %>
+      </div>
+    </div>
+
+    <div class="sm:col-span-6 pb-3">
+      <label for="contact_email" class="block text-sm font-medium text-gray-700">
+        Contact Email
+      </label>
+      <div class="mt-1">
+        <%= form.text_field :contact_email, class: "py-2 px-1 border border-gray-300 rounded-md focus:bg-gray-200 shadow block w-full sm:text-sm" %>
+      </div>
+    </div>
+
+    <div class="sm:col-span-6 pb-3">
+      <label for="contact_phone" class="block text-sm font-medium text-gray-700">
+        Contact Phone Number
+      </label>
+      <div class="mt-1">
+        <%= form.text_field :contact_phone, class: "py-2 px-1 border border-gray-300 rounded-md focus:bg-gray-200 shadow block w-full sm:text-sm" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-6">
+    <fieldset>
+      <legend class="text-base font-medium text-gray-900">
+        Is the Vacccine Site Walk-thru and/or Drive-thru?
+      </legend>
+      <div class="mt-4 space-y-4">
+
+        <div class="relative flex items-start">
+          <div class="flex items-center h-5 mr-3">
+            <%= form.label "Walk-thru" %> <br />
+          </div>
+          <div>
+            <%= form.check_box :is_walk_thru, class: "h-4 w-4 border border-gray-300 rounded" %> <br />
+          </div>
+        </div>
+
+        <div class="relative flex items-start">
+          <div class="flex items-center h-5 mr-3">
+            <%= form.label "Drive-thru" %> <br />
+          </div>
+          <div>
+            <%= form.check_box :is_drive_thru, class: "h-4 w-4 border border-gray-300 rounded" %> <br />
+          </div>
+        </div>
+
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="mt-6">
+    <%= form.submit "Submit Form", class: "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" %>
+  </div>
+
+  <% end %>
+</div>
