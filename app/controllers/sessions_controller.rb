@@ -24,13 +24,9 @@ class SessionsController < ApplicationController
 
   protected
 
-  def auth_hash
-    request.env['omniauth.auth']
-  end
-  
   def logout
     reset_session
-    # flash[:success] = "Sucessfully logged out!"
+    flash[:success] = "Sucessfully logged out!"
     redirect_to root_path
   end
 end
