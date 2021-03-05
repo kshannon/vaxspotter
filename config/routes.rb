@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   scope '/admin' do
     resources :locations
     post "new_location", to: 'locations#create'
+
+    resources :appointments
+    post "new_appointment", to: 'appointments#create'
   end
 
   post 'test_tweet' => 'twitter#test_tweet', as: :test_tweet
