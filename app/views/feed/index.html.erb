@@ -1,2 +1,69 @@
-<h1 class="flex justify-center">raise: todo</h1>
+<div class="pb-24">
+  <div class="max-w-3xl mx-auto px-4 space-y-3 font-light">
+    <p>VaxSpotter watches for new and updated Covid-19 vaccination appointments in the San Diego County area.</p>
+    <ul class="list-outside list-disc pl-5 space-y-1">
+      <li> Follow our Twitter
+        <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/VaxSpotter" class="text-blue-600 hover:underline hover:text-blue-800 italic">(@vaxspotter)</a> 
+        account to be notified when we find new appointments</li>
+      <li> Various agencies list appointment openings at different time. Check back here often for updated data.</li>
+    </ul>
+    <p>We will continue to try adding new appointment locations and data sources. If you find this info to be helpful, consider making a donation to 
+      <a target="_blank" rel="noopener noreferrer" href="https://volunteertransportationcenter.org/donate/" class="text-blue-600 hover:underline hover:text-blue-800 italic">The Volunteer Transportation Center</a>
+    </p>
+  </div>
+  <div class="max-w-3xl mx-auto px-4 mt-12">
+    <ul class="space-y-8">
+      <% @valid_locations.each do | location | %>
+        <li class="bg-white shadow-md overflow-hidden rounded-md">
+          <div class="rounded-t-md px-6 py-4">
+            <h3 class="text-xl"><%= location.name %></h3>
+            <p class="text-gray-700 font-light"><%= location.address %></p>
+            <div class="flex mt-3 space-x-3">
+              <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-orange-200 text-orange-800">
+                <%= location.managed_by %>
+              </span>
+              <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-orange-200 text-orange-800">
+                <%= location.city %>
+              </span>
+              <% if location.is_drive_thru? %>
+                <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-orange-200 text-orange-800">
+                  Drive-thru
+                </span>
+              <% end %>
+              <% if location.is_walk_thru? %>
+                <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-orange-200 text-orange-800">
+                  Walk-thru
+                </span>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="mt-3 mb-2 px-6 py-2 text-gray-600 space-y-1">
+            <% @current_appointments.each do | appointment | %>
+              <% if appointment.location_id == location.id %>
+                <div class="flex justify-start">
+                  <div class="font-mono pr-3"><%= appointment.date.strftime("%b %d") %></div>
+                  <% if appointment.start_time? %>
+                    <div class="font-mono pr-3">&#8594; <%= appointment.start_time.strftime("%l:%M%P") %></div>
+                  <% end %>
+                  <% if appointment.end_time? %>
+                    <div class="font-mono">- <%= appointment.end_time.strftime("%l:%M%P") %></div>
+                  <% end %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+
+          <a target="_blank" rel="noopener noreferrer" href=<%= location.appointment_url %> class="self-center">
+            <div class="self-center rounded-b-md bg-blue-100 hover:bg-blue-200 hover:text-blue-900 px-6 py-2">
+              <span class="flex justify-center text-blue-700 text-lg font-medium">Click For Reservation</span>
+            </div>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+
 
