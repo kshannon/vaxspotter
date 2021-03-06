@@ -9,7 +9,11 @@ module.exports = {
     './app/**/*.html.erb',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
   variants: {},
   plugins: [],
