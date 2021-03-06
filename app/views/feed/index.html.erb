@@ -1,14 +1,14 @@
 <div class="pb-24">
-  <div class="max-w-3xl mx-auto px-4 space-y-3 font-light">
+  <div class="max-w-3xl mx-auto px-4 space-y-3 prose">
     <p>VaxSpotter watches for new and updated Covid-19 vaccination appointments in the San Diego County area.</p>
-    <ul class="list-outside list-disc pl-5 space-y-1">
+    <ul class="pl-3 space-y-1">
       <li> Follow our Twitter
-        <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/VaxSpotter" class="text-blue-600 hover:underline hover:text-blue-800 italic">(@vaxspotter)</a> 
+        <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/VaxSpotter" class="prose-blue hover:underline hover:text-blue-800 italic">(@vaxspotter)</a> 
         account to be notified when we find new appointments</li>
       <li> Various agencies list appointment openings at different time. Check back here often for updated data.</li>
     </ul>
     <p>We will continue to try adding new appointment locations and data sources. If you find this info to be helpful, consider making a donation to 
-      <a target="_blank" rel="noopener noreferrer" href="https://volunteertransportationcenter.org/donate/" class="text-blue-600 hover:underline hover:text-blue-800 italic">The Volunteer Transportation Center</a>
+      <a target="_blank" rel="noopener noreferrer" href="https://volunteertransportationcenter.org/donate/" class="prose-blue hover:underline hover:text-blue-800 italic">The Volunteer Transportation Center</a>
     </p>
   </div>
   <div class="max-w-3xl mx-auto px-4 mt-12">
@@ -19,19 +19,19 @@
             <h3 class="text-xl"><%= location.name %></h3>
             <p class="text-gray-700 font-light"><%= location.address %></p>
             <div class="flex mt-3 space-x-3">
-              <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-orange-200 text-orange-800">
+              <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
                 <%= location.managed_by %>
               </span>
-              <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-orange-200 text-orange-800">
+              <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
                 <%= location.city %>
               </span>
               <% if location.is_drive_thru? %>
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-orange-200 text-orange-800">
+                <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
                   Drive-thru
                 </span>
               <% end %>
               <% if location.is_walk_thru? %>
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-orange-200 text-orange-800">
+                <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
                   Walk-thru
                 </span>
               <% end %>
