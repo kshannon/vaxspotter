@@ -6,5 +6,10 @@
     <div><%= link_to "home", "/", class: "hover:underline hover:text-blue-600" %></div>
     <div><%= link_to "about", "/about", class: "hover:underline hover:text-blue-600" %></div>
     <div><%= link_to "help", "/help", class: "hover:underline hover:text-blue-600" %></div>
+    <% if session[:current_user] %>
+      <div><%= link_to "admin", "/admin", class: "hover:underline hover:text-blue-600" %></div>
+      <div><%= link_to "locations", locations_path, method: "get", class: "hover:underline hover:text-blue-600" %></div>
+      <div><%= link_to "appointments", appointments_path, method: "get", class: "hover:underline hover:text-blue-600" %></div>
+    <% end %>
   </nav>
 </div>

@@ -1,22 +1,8 @@
-<h1>admin stuff here</h1>
-
 <% if session[:current_user] %>
-  <div class="pt-6">
-    <button class="pb-6">
-      <%= link_to 'Log Out', logout_sessions_path, class: "group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"  %>
-    </button>
-
-    <%= button_to "Test Tweet", test_tweet_path, class: "group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %> 
-    
-    <%= button_to "List of Locations", locations_path, method: "get", class: "group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %> 
-    <%= button_to "List of Appointments", appointments_path, method: "get", class: "group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %> 
+  <div class="flex flex-col mx-auto px-10">
+    <div class="flex justify-between">
+      <h1 class="text-2xl">Admin Panel</h1>
+      <%= button_to 'Log Out', logout_sessions_path, class: "group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"  %>
+    </div>
   </div>
 <% end %>
-
-
-<div>
-  
-
-</div>
-
-
