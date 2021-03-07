@@ -2,6 +2,12 @@ class Appointment < ApplicationRecord
   belongs_to :location
   after_save_commit :build_publish_tweet
 
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      Appointment.create! row.to_hash
+    end
+  end
+
   private
 
   def build_publish_tweet

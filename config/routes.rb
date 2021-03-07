@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     resources :locations
     post "new_location", to: 'locations#create'
 
-    resources :appointments
+    resources :appointments do
+      collection {post :import }
+    end
     post "new_appointment", to: 'appointments#create'
   end
 

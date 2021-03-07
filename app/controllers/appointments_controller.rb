@@ -34,6 +34,11 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def import
+    Appointment.import(params[:file])
+    redirect_to appointments_path, notice: "Successfully Imported Appointment CSV"
+  end
+
   private
 
   def appointment_params

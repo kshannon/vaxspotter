@@ -3,7 +3,6 @@
     <h1 class="text-2xl">List of Appointments</h1>
     <div class="flex space-x-4">
       <%= button_to "Add New Appointment", new_appointment_path, method: "get", class: "group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" %> 
-      <%= button_to "Upload Appointments", new_appointment_path, method: "get", class: "group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" %>  
     </div>
   </div>
   <div class="mt-4">
@@ -11,9 +10,9 @@
       <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-              <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-200">
+            <div class="shadow overflow-y-auto border-b border-gray-200 sm:rounded-lg">
+              <table class="min-w-full divide-y divide-gray-200 table-auto">
+                <thead class="bg-gray-200 sticky">
                   <tr>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                       Date
@@ -71,5 +70,23 @@
         </div>
       </div>
     <% end %>
+  </div>
+  <div class="my-8">
+    <h1 class="text-2xl mb-4">Bulk Appointment Import</h1>
+      <%= form_tag import_appointments_path, multipart: true do %>
+        <div class="max-w-xl flex justify-center px-6 pt-8 pb-8 border-2 border-gray-300 border-dashed rounded-md">
+          <div class="space-y-3 text-center">
+            <div class="flex text-sm text-gray-600 flex justify-center">
+              <%= file_field_tag :file, class: "" %>
+            </div>
+            <div>
+              <p class="text-sm text-gray-500">
+                Headers: location_id*, date*, start_time, end_time, vaccines_available
+              </p>
+            </div>
+          </div>
+        </div>
+        <%= submit_tag "Upload Appointments CSV", class: "mt-4 group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" %>  
+      <% end %>
   </div>
 </div>
