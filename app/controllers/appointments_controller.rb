@@ -2,7 +2,7 @@ class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:edit, :update, :destroy]
 
   def index
-    @appointments = Appointment.all.order("date DESC")
+    @appointments = Appointment.where("appointments.date >= ?", Time.now).order("date DESC")
   end
 
   def new

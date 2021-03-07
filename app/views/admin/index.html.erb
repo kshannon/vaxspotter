@@ -4,5 +4,9 @@
       <h1 class="text-2xl">Admin Panel</h1>
       <%= button_to 'Log Out', logout_sessions_path, class: "group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"  %>
     </div>
+    <div class="mt-8">
+    <p><%= @count_appointments %> Total Appointments Spotted</p>
+    <p><%= @count_locations %> Total Locations</p>
+    </div>
   </div>
 <% end %>
