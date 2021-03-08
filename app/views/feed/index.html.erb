@@ -1,6 +1,11 @@
 <div class="pb-24">
   <div class="max-w-3xl mx-auto px-4 space-y-3 prose">
-    <p>VaxSpotter watches for new and updated Covid-19 vaccination appointments in the San Diego County area.</p>
+    <div>
+      VaxSpotter watches for new and updated Covid-19 vaccination appointments in the San Diego County area.
+      <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-pink-200 text-pink-800">
+        Last Updated: <%= @last_updated %>
+      </span>
+    </div>
     <ul class="pl-3 space-y-1">
       <li> Follow our Twitter
         <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/VaxSpotter" class="hover:underline italic">(@vaxspotter)</a> 
@@ -11,7 +16,15 @@
       <a target="_blank" rel="noopener noreferrer" href="https://volunteertransportationcenter.org/donate/" class="hover:underline italic">The Volunteer Transportation Center</a>
     </p>
   </div>
-  <div class="max-w-3xl mx-auto px-4 mt-12">
+
+  <div class="max-w-3xl mx-auto px-4 mt-8">
+    <%= render partial: 'shared/notification', locals: {
+                                                  message: "As of 02/27/21, the County of San Diego is only vaccinating people who live or work in San Diego County AND are in Phase 1A or Phase 1B (includes persons age 65 and older).",
+                                                  url: "https://www.sandiegocounty.gov/content/sdc/hhsa/programs/phs/community_epidemiology/dc/2019-nCoV/vaccines/phases.html"
+                                                } %>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 mt-8">
     <ul class="space-y-8">
       <% @valid_locations.each do | location | %>
         <li class="bg-white shadow-md overflow-hidden rounded-md">
