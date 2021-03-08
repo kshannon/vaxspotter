@@ -24,11 +24,10 @@ class SessionsController < ApplicationController
     end
   end
 
-  protected
-
   def logout
     reset_session
     flash[:success] = "Sucessfully logged out!"
     redirect_to root_path
   end
+
 end

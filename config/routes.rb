@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :new] do
     collection do
-      get :logout
+      post :logout
     end
   end
 
