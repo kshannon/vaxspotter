@@ -1,4 +1,6 @@
 class FeedController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def index
     @valid_locations = Location.joins(:appointments).where(["appointments.date >= ?", Time.now]).group(:id)
     @current_appointments = Appointment.where("date >= ?", Time.now).order("date DESC")

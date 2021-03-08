@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :authentication_required!
+
   ApplicationNotAuthenticated = Class.new(StandardError)
 
   rescue_from ApplicationNotAuthenticated do
