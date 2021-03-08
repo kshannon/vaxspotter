@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def new
     @site_user = SiteUser.new
   end
@@ -22,11 +24,10 @@ class SessionsController < ApplicationController
     end
   end
 
-  protected
-
   def logout
     reset_session
     flash[:success] = "Sucessfully logged out!"
     redirect_to root_path
   end
+
 end
