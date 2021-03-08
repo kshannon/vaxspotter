@@ -6,7 +6,7 @@ by [Kyle Shannon](https://www.kmshannon.com/).
 
 ## License
 
-*raise todo: probably MIT or apache*
+Apache License 2.0
 
 ## Getting started
 
