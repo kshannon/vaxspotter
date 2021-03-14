@@ -27,6 +27,7 @@ gem 'turbolinks', '~> 5'
 gem 'bcrypt', '~> 3.1.7'
 
 gem "twitter", "~> 7.0"
+gem 'active_hash'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
