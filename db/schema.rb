@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_073618) do
+ActiveRecord::Schema.define(version: 2021_03_14_013752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,16 +25,6 @@ ActiveRecord::Schema.define(version: 2021_03_12_073618) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["date"], name: "index_appointments_on_date"
     t.index ["location_id"], name: "index_appointments_on_location_id"
-  end
-
-  create_table "geographies", force: :cascade do |t|
-    t.string "state", null: false
-    t.string "county", null: false
-    t.string "city", null: false
-    t.string "neighborhood"
-    t.string "postal_code", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "locations", force: :cascade do |t|
@@ -52,6 +42,12 @@ ActiveRecord::Schema.define(version: 2021_03_12_073618) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "archived", default: false
     t.integer "location_type"
+    t.string "postal_code"
+    t.string "longitude"
+    t.string "latitude"
+    t.string "state"
+    t.datetime "appointments_last_fetched"
+    t.bigint "api_id"
   end
 
   add_foreign_key "appointments", "locations"
