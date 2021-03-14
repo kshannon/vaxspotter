@@ -21,7 +21,12 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'admin' => 'admin#index'
-  get ':page' => 'pages#show'
+  # get ':page' => 'pages#show'
+  get  'static_pages/data'
+  get  'static_pages/about'
+  get  'static_pages/help'
+  get  'static_pages/disclaimer'
+  
   root 'feed#index'
 
 end
