@@ -44,105 +44,70 @@ class VaccineSpotterV0ApiJob < ApplicationJob
         appointments_last_fetched: obj[:"properties.appointments_last_fetched"] #format: "2021-02-24T23:36:37.222+00:00"
       }
 
-      # parsed_appointments = parse_appointments()
-
       if Area.find_by(postal_code: location_params_hash[:postal_code]) #check if location falls in our postal_code provider Area "cached, not a DB lookup"
         try_create_location(location_params_hash, vaxspotter_locations)
         try_create_appointments(appointment_params_hash, location_params_hash[:api_id])
       end
-
     end
   end
+
 
   private
-
-  def parse_appointments(params_hash)
-    appointment_objects = []
-    dates_seen = []
-
-    if params_hash.try(:vaccines_available) == false
-      return appointment_objects
-    end
-
-    puts params_hash
-    puts '==================================='
-    params_hash[:appointments].each do | appt |
-      puts 'hi'
-      puts appt
-      date = appt["time"].to_datetime.strftime('%Y/%m/%d')
-      if dates_seen.include? date
-        appointment_objects.map! do |h|
-          h['vaccines_available'] += 1 if h[date]
-        end
-      else
-        appointment_objects << {:date => date, :vaccines_available => 1}
-        dates_seen << date
-        puts appointment_objects.class
-        puts dates_seen
-      end
-    end
-    return appointment_objects
-  end
 
 
   def try_create_appointments(params_hash, api_id)
     if params_hash[:vaccines_available].nil? || params_hash[:vaccines_available] == false
       return
     end
-
     appts_to_create = []
-
     location_id = Location.where('api_id = ?', api_id).ids[0]
 
+    # This 'if' covers the case where params_hash[:vaccines_available]=true, but appt array is empty.
+    # Assume there are appts, and the day last fetched the the appt day. Often this is the case when looking at the raw data
     if params_hash[:appointments].length == 0
       date = params_hash[:appointments_last_fetched].to_datetime.strftime('%Y/%m/%d')
-      vaccines_available = '' #we dont know, empty array, but api says there are appts availble.
-
+      vaccines_available = '' #naive assumption for now
       appointment_hash = {
         location_id: location_id,
         vaccines_available: vaccines_available,
         date: date
       }
-
       appts_to_create << appointment_hash
       create_appointments(appts_to_create)
+
+    # This 'else' covers the case where params_hash[:vaccines_available]=true and we have a non empty appt array
+    # We loop thropugh the arrays toget appt dates. We do not yet grab the number of vaccines available nor the times
+    # either start/end or actual appt times. TODO: This is a naive base case assumption and should be improved
     else
-      #handle date and counts
-      vaccines_available = params_hash[:appointments].length()
+      dates_seen = []
+      params_hash[:appointments].each do |a|
+        vaccines_available = '' #naive assumption for now
+        date = a[:time].to_datetime.strftime('%Y/%m/%d')
+        if dates_seen.include? date
+          next
+        end
+        dates_seen << date
+        appointment_hash = {
+          location_id: location_id,
+          vaccines_available: vaccines_available,
+          date: date
+        }
+        appts_to_create << appointment_hash
+      end
+      create_appointments(appts_to_create)
     end
-
-
-    # appointment_hash = {
-    #   location_id: location_id,
-    #   vaccines_available: vaccines_available,
-    #   date: date
-    # }
-
-    # Appointment.create!(appointment_hash)
-    # puts 'appt created!'
-
-    # if Appointment.where(:location_id => appointment_hash['location_id'], :date => appointment_hash['date']).blank?
-    #   puts "we already have this appt!!!!!"
-    #   return
-    # else
-    #   Appointment.create!(appointment_hash)
-    # end
   end
+
 
   def create_appointments(appts_to_create)
     appts_to_create.each do |appts|
-      if Appointment.exists?( {location_id: appts[:location_id], date: appts[:date]} )
-        puts "we found an existing one!!"
-         # Appointment.create!(appts) #check for update??
+      if Appointment.exists?( {location_id: appts[:location_id], date: appts[:date]} ) #truthy conditional since we dont know the id
+         # Appointment.create!(appts) #TODO: check for update when we have more specific appt day data
       else
         Appointment.create!(appts)
       end
     end
   end
-
-
-
-
 
 
   def try_create_location(params_hash, vaxspotter_locations)
@@ -157,6 +122,7 @@ class VaccineSpotterV0ApiJob < ApplicationJob
   def vaxspotter_locations()
     Location.pluck(:api_id)
   end
+
 
   def flatten_hash(hash)
     hash.each_with_object({}) do |(k, v), h|
