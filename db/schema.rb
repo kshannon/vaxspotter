@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_07_210828) do
+ActiveRecord::Schema.define(version: 2021_03_14_013752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,12 @@ ActiveRecord::Schema.define(version: 2021_03_07_210828) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "archived", default: false
     t.integer "location_type"
+    t.string "postal_code"
+    t.string "longitude"
+    t.string "latitude"
+    t.string "state"
+    t.datetime "appointments_last_fetched"
+    t.bigint "api_id"
   end
 
   add_foreign_key "appointments", "locations"

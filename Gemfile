@@ -27,6 +27,7 @@ gem 'turbolinks', '~> 5'
 gem 'bcrypt', '~> 3.1.7'
 
 gem "twitter", "~> 7.0"
+gem 'active_hash'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -49,6 +50,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '2.0.1'
+  gem 'whenever', require: false
 end
 
 group :test do
