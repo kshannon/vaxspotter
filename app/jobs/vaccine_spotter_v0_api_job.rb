@@ -23,10 +23,12 @@ class VaccineSpotterV0ApiJob < ApplicationJob
         next
       end
 
+      full_address = obj[:"properties.address"] + ", " + obj[:"properties.city"] + ", " + obj[:"properties.state"] + " " + obj[:"properties.postal_code"]
+
       location_params_hash = {
         api_id: obj[:"properties.id"],
         name: obj[:"properties.name"],
-        address: obj[:"properties.address"],
+        address: full_address.upcase,
         city: obj[:"properties.city"],
         postal_code:  obj.fetch(:"properties.postal_code", ''),
         appointment_url: obj[:"properties.url"],
@@ -112,7 +114,7 @@ class VaccineSpotterV0ApiJob < ApplicationJob
 
   def try_create_location(params_hash, vaxspotter_locations)
     if vaxspotter_locations.include? params_hash[:api_id]
-      return
+      Location.where(:api_id => params_hash[:api_id]).update_all(params_hash)
     else
       Location.create!(params_hash)
     end
