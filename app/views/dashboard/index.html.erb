@@ -1,49 +1,24 @@
 
 
 <div class="max-w-3xl mx-auto">
-    <h2>Vaccine Data Sources</h2>
-    <%= @hi %>
-  <div>
-    <table class="table-auto">
-      <thead>
+    <h2 class="mb-2">Vaccine Providers We Track</h2>
+  <div class="shadow overflow-y-auto border-b border-gray-200 sm:rounded-lg">
+    <table class="min-w-full divide-y divide-gray-200 table-auto">
+      <thead class="bg-gray-200 sticky">
         <tr>
-          <th>Provider Source</th>
-          <th>Sites</th>
-          <th>Status</th>
+          <th scope="col" class="px-6 py-1 text-left text-xs text-gray-700 uppercase tracking-wider">Provider Source</th>
+          <th scope="col" class="px-6 py-1 text-left text-xs text-gray-700 uppercase tracking-wider">Sites</th>
+          <th scope="col" class="px-6 py-1 text-left text-xs text-gray-700 uppercase tracking-wider">Status</th>
         </tr>
       </thead>
-      <tbody>
-      <% '' %>
+      <tbody class="bg-white divide-y divide-gray-200">
+      <% @vaxspotter_providers.each do |provider| %>
         <tr>
-          <td>City of San Diego</td>
-          <td>1</td>
-          <td>active</td>
+          <td class="px-6 py-1 whitespace-nowrap text-xs text-gray-700"><%= provider[:name] %></td>
+          <td class="px-6 py-1 whitespace-nowrap text-xs text-gray-700"><%= provider[:count] %></td>
+          <td class="px-6 py-1 whitespace-nowrap text-xs text-gray-700"><%=  provider[:status] %></td>
         </tr>
-        <tr>
-          <td>County of San Diego</td>
-          <td>14</td>
-          <td>active</td>
-        </tr>
-        <tr>
-          <td>Palomar Health</td>
-          <td>1</td>
-          <td>active</td>
-        </tr>
-        <tr>
-          <td>Rady Children's Hospital</td>
-          <td>1</td>
-          <td>active</td>
-        </tr>
-        <tr>
-          <td>Sharp Healthcare</td>
-          <td>3</td>
-          <td>active</td>
-        </tr>
-        <tr>
-          <td>UC San Diego Health</td>
-          <td>2</td>
-          <td>active</td>
-        </tr>
+      <% end %>
       </tbody>
     </table>
   </div>

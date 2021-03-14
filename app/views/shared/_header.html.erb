@@ -4,7 +4,7 @@
   </div>
   <nav class="pt-10 pb-8 flex justify-center space-x-6 text-xl font-light text-blue-700">
     <div><%= link_to "home", "/", class: "hover:underline hover:text-blue-600" %></div>
-    <div><%= link_to "data", static_pages_data_path, class: "hover:underline hover:text-blue-600" %></div>
+    <div><%= link_to "dashboard", dashboard_path, method: "get", class: "hover:underline hover:text-blue-600" %></div>
     <div><%= link_to "about", static_pages_about_path, class: "hover:underline hover:text-blue-600" %></div>
     <div><%= link_to "help", static_pages_help_path, class: "hover:underline hover:text-blue-600" %></div>
     <% if session[:current_user] %>

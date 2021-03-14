@@ -1,7 +1,5 @@
 class StaticPagesController < ApplicationController
-  def data
-    @hi = "there"
-  end
+  skip_before_action :authenticate_user!
 
   def about
   end
