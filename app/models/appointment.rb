@@ -26,7 +26,7 @@ class Appointment < ApplicationRecord
     end
 
     appt_info = "#{self.date.strftime("%b %d")}#{appt_times}#{vaccines_available}"
-    tweet = "[#{location.city}] #{location.name}\n\n#{appt_info}\n\n#{location.appointment_url}"
+    tweet = "[#{location.city}] #{location.name}\n#{location.address}\n\n#{appt_info}\n\n#{location.appointment_url}"
 
     if Rails.env.production?
       TweetJob.perform_now(tweet)
