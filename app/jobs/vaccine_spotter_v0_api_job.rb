@@ -67,7 +67,11 @@ class VaccineSpotterV0ApiJob < ApplicationJob
     # This 'if' covers the case where params_hash[:vaccines_available]=true, but appt array is empty.
     # Assume there are appts, and the day last fetched the the appt day. Often this is the case when looking at the raw data
     if params_hash[:appointments].length == 0
-      date = params_hash[:appointments_last_fetched].to_datetime.strftime('%Y/%m/%d')
+      if params_hash[:appointments_last_fetched].nil? == true
+        date = DateTime.now.strftime('%Y/%m/%d') #naive assumption the appt is today
+      else
+        date = params_hash[:appointments_last_fetched].to_datetime.strftime('%Y/%m/%d')
+      end
       vaccines_available = '' #naive assumption for now
       appointment_hash = {
         location_id: location_id,
@@ -84,7 +88,11 @@ class VaccineSpotterV0ApiJob < ApplicationJob
       dates_seen = []
       params_hash[:appointments].each do |a|
         vaccines_available = '' #naive assumption for now
-        date = a[:time].to_datetime.strftime('%Y/%m/%d')
+        if a["time"].nil? == true #formatted as {"time"=>"2021-03-19T09:45:00.000-07:00"}
+          next
+        else
+          date = a["time"].to_datetime.strftime('%Y/%m/%d')
+        end
         if dates_seen.include? date
           next
         end
