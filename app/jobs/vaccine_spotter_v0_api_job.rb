@@ -58,15 +58,15 @@ class VaccineSpotterV0ApiJob < ApplicationJob
 
 
   def try_create_appointments(params_hash, api_id)
-    if params_hash[:vaccines_available].nil? || params_hash[:vaccines_available] == false
-      return
+    if params_hash[:vaccines_available].nil? || params_hash[:"vaccines_available"] == false
+      remove_stale_appointments(api_id)
     end
     appts_to_create = []
     location_id = Location.where('api_id = ?', api_id).ids[0]
 
     # This 'if' covers the case where params_hash[:vaccines_available]=true, but appt array is empty.
     # Assume there are appts, and the day last fetched the the appt day. Often this is the case when looking at the raw data
-    if params_hash[:appointments].length == 0
+    if params_hash[:appointments].nil? == true || params_hash[:appointments].length == 0
       if params_hash[:appointments_last_fetched].nil? == true
         date = DateTime.now.strftime('%Y/%m/%d') #naive assumption the appt is today
       else
@@ -117,6 +117,12 @@ class VaccineSpotterV0ApiJob < ApplicationJob
         Appointment.create!(appts)
       end
     end
+  end
+
+  def remove_stale_appointments(api_id)
+    puts "you found my 0 appts"
+    location_id = Location.where('api_id = ?', api_id).ids[0]
+    Appointment.where('location_id = ?', location_id).where('is_stale = ?', false).update_all(is_stale: true)
   end
 
 
