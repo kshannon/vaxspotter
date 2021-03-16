@@ -81,8 +81,8 @@ class VaccineSpotterV0ApiJob < ApplicationJob
       appts_to_create << appointment_hash
       create_appointments(appts_to_create)
 
-    # This 'else' covers the case where params_hash[:vaccines_available]=true and we have a non empty appt array
-    # We loop thropugh the arrays toget appt dates. We do not yet grab the number of vaccines available nor the times
+    # This 'else' covers the case where params_hash[:vaccines_available]=true and we have a non empty appt array.
+    # We loop thropugh the arrays to get appt dates. We do not yet grab the number of vaccines available nor the times
     # either start/end or actual appt times. TODO: This is a naive base case assumption and should be improved
     else
       dates_seen = []
@@ -112,7 +112,7 @@ class VaccineSpotterV0ApiJob < ApplicationJob
   def create_appointments(appts_to_create)
     appts_to_create.each do |appts|
       if Appointment.exists?( {location_id: appts[:location_id], date: appts[:date]} ) #truthy conditional since we dont know the id
-         # Appointment.create!(appts) #TODO: check for update when we have more specific appt day data
+        Appointment.where( {location_id: appts[:location_id], date: appts[:date]} ).update_all(is_stale: false)
       else
         Appointment.create!(appts)
       end
