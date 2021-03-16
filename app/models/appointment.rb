@@ -11,6 +11,10 @@ class Appointment < ApplicationRecord
   private
 
   def build_publish_tweet
+    if self.is_stale == true
+      return puts "Will not tweet about saving/updating an appt to stale = true"
+    end
+
     location = Location.where("id = ?", self.location_id).first
 
     if self.start_time && self.end_time

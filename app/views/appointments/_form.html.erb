@@ -16,7 +16,7 @@
         Location <i class="text-blue-500">required</i>
       </label>
       <div class="mt-1">
-        <%= form.select :location_id, Location.all.collect { |p| [p.name, p.id] }, { :include_blank => true }, {class: "py-2 px-1 border border-gray-300 bg-white rounded-md focus:bg-white shadow block w-full sm:text-sm"} %>
+        <%= form.select :location_id, Location.all.order('name ASC').collect { |p| ["#{p.name}: #{p.address}  ~>  id:#{p.id}", p.id] }, { :include_blank => true }, {class: "py-2 px-1 border border-gray-300 bg-white rounded-md focus:bg-white shadow block w-full sm:text-sm"} %>
       </div>
     </div>
 
