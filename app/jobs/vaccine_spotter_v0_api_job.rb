@@ -58,15 +58,15 @@ class VaccineSpotterV0ApiJob < ApplicationJob
 
 
   def try_create_appointments(params_hash, api_id)
-    if params_hash[:vaccines_available].nil? || params_hash[:vaccines_available] == false
-      return
+    if params_hash[:vaccines_available].nil? || params_hash[:"vaccines_available"] == false
+      remove_stale_appointments(api_id)
     end
     appts_to_create = []
     location_id = Location.where('api_id = ?', api_id).ids[0]
 
     # This 'if' covers the case where params_hash[:vaccines_available]=true, but appt array is empty.
     # Assume there are appts, and the day last fetched the the appt day. Often this is the case when looking at the raw data
-    if params_hash[:appointments].length == 0
+    if params_hash[:appointments].nil? == true || params_hash[:appointments].length == 0
       if params_hash[:appointments_last_fetched].nil? == true
         date = DateTime.now.strftime('%Y/%m/%d') #naive assumption the appt is today
       else
@@ -81,8 +81,8 @@ class VaccineSpotterV0ApiJob < ApplicationJob
       appts_to_create << appointment_hash
       create_appointments(appts_to_create)
 
-    # This 'else' covers the case where params_hash[:vaccines_available]=true and we have a non empty appt array
-    # We loop thropugh the arrays toget appt dates. We do not yet grab the number of vaccines available nor the times
+    # This 'else' covers the case where params_hash[:vaccines_available]=true and we have a non empty appt array.
+    # We loop thropugh the arrays to get appt dates. We do not yet grab the number of vaccines available nor the times
     # either start/end or actual appt times. TODO: This is a naive base case assumption and should be improved
     else
       dates_seen = []
@@ -112,11 +112,17 @@ class VaccineSpotterV0ApiJob < ApplicationJob
   def create_appointments(appts_to_create)
     appts_to_create.each do |appts|
       if Appointment.exists?( {location_id: appts[:location_id], date: appts[:date]} ) #truthy conditional since we dont know the id
-         # Appointment.create!(appts) #TODO: check for update when we have more specific appt day data
+        Appointment.where( {location_id: appts[:location_id], date: appts[:date]} ).update_all(is_stale: false)
       else
         Appointment.create!(appts)
       end
     end
+  end
+
+  def remove_stale_appointments(api_id)
+    puts "you found my 0 appts"
+    location_id = Location.where('api_id = ?', api_id).ids[0]
+    Appointment.where('location_id = ?', location_id).where('is_stale = ?', false).update_all(is_stale: true)
   end
 
 

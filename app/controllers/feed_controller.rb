@@ -2,8 +2,8 @@ class FeedController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @valid_locations = Location.joins(:appointments).where(["appointments.date >= ?", Time.now]).group(:id)
-    @current_appointments = Appointment.where("date >= ?", Time.now).order("date DESC")
+    @valid_locations = Location.joins(:appointments).where("appointments.date >= ?", Time.now).where("is_stale = ?", false).group(:id)
+    @current_appointments = Appointment.where("date >= ?", Time.now).where("is_stale = ?", false).order("date DESC")
     if Appointment.exists?
       updated = Appointment.order("created_at").last.created_at.strftime("%m/%d @ %I:%M %p")
       @last_updated = "Last Updated: #{updated}"

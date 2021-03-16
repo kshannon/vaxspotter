@@ -3,7 +3,7 @@ class Location < ApplicationRecord
   has_many :appointments, dependent: :destroy
 
   enum location_type: {
-    medidcal_center: 1,
+    medical_center: 1,
     super_station: 2,
     community_center: 3,
     pharmacy: 4,

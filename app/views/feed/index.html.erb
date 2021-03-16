@@ -10,11 +10,8 @@
       <li> Follow our Twitter
         <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/VaxSpotter" class="hover:underline italic">(@vaxspotter)</a> 
         account to be notified when we find new appointments</li>
-      <li> Various agencies list appointment openings at different times. Check back here often for updated data.</li>
+      <li> Various agencies, providers, and data sources list appointment openings at different times. Check back here often for updated data.</li>
     </ul>
-    <p>We will continue to try adding new appointment locations and data sources. If you find this info to be helpful, consider making a donation to 
-      <a target="_blank" rel="noopener noreferrer" href="https://volunteertransportationcenter.org/donate/" class="hover:underline italic">The Volunteer Transportation Center</a>
-    </p>
   </div>
 
   <div class="max-w-3xl mx-auto px-4 mt-8">
@@ -22,6 +19,18 @@
                                                   message: "As of 02/27/21, the County of San Diego is only vaccinating people who live or work in San Diego County AND are in Phase 1A or Phase 1B (includes persons age 65 and older).",
                                                   url: "https://www.sandiegocounty.gov/content/sdc/hhsa/programs/phs/community_epidemiology/dc/2019-nCoV/vaccines/phases.html"
                                                 } %>
+  </div>
+  <div class="max-w-3xl mx-auto px-4 mt-4">
+    <%= render partial: 'shared/notification', locals: {
+                                                  message: "As of 03/15/21, Phase 1C vaccinations are available to those with certain health conditions, disabilities, illness, living spaces, or work environments that put them at higher risk.",
+                                                  url: "https://www.sandiegocounty.gov/content/dam/sdc/hhsa/programs/phs/Epidemiology/covid19/vaccines/Phase%201B%20Next%20Groups_Who%20is%20Eligible_Medical_Conditions.pdf"
+                                                } %>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 mt-12">
+    <% if @valid_locations.length == 0 %>
+      <%= render partial: 'no_appointments.html' %>
+    <% end %>
   </div>
 
   <div class="max-w-3xl mx-auto px-4 mt-8">

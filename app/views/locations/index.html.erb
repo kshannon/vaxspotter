@@ -56,7 +56,7 @@
                       <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         <%= location.name %>
                       </td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 truncate">
                         <%= location.address %>
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
@@ -65,7 +65,7 @@
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
                         <%= location.location_type.nil? ? location.location_type : location.location_type.humanize %>
                       </td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 truncate">
                         <%= location.appointment_url %>
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">

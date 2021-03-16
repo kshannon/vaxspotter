@@ -1,6 +1,6 @@
 <div class="flex flex-col mx-auto px-10">
   <div class="flex justify-between">
-    <h1 class="text-2xl">List of Active Appointments</h1>
+    <h1 class="text-2xl">List of Current & Future Appointments (Might be stale/taken)</h1>
     <div class="flex space-x-4">
       <%= button_to "Add New Appointment", new_appointment_path, method: "get", class: "group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" %> 
     </div>
@@ -16,6 +16,9 @@
                   <tr>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                       Date
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                      Stale
                     </th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                       Location Id
@@ -45,6 +48,9 @@
                     <tr>
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
                         <%= appointment.date %>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        <%= appointment.is_stale %>
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         <%= appointment.location_id %>
