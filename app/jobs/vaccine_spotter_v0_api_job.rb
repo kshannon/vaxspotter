@@ -112,7 +112,9 @@ class VaccineSpotterV0ApiJob < ApplicationJob
   def create_appointments(appts_to_create)
     appts_to_create.each do |appts|
       if Appointment.exists?( {location_id: appts[:location_id], date: appts[:date]} ) #truthy conditional since we dont know the id
-        Appointment.where( {location_id: appts[:location_id], date: appts[:date]} ).update_all(is_stale: false)
+        next
+        # TODO: update appts that were all taken, but more opened up? 
+        # Appointment.where( {location_id: appts[:location_id], date: appts[:date]} ).update_all(is_stale: false)
       else
         Appointment.create!(appts)
       end
@@ -120,7 +122,6 @@ class VaccineSpotterV0ApiJob < ApplicationJob
   end
 
   def remove_stale_appointments(api_id)
-    puts "you found my 0 appts"
     location_id = Location.where('api_id = ?', api_id).ids[0]
     Appointment.where('location_id = ?', location_id).where('is_stale = ?', false).update_all(is_stale: true)
   end
