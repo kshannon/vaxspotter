@@ -1,4 +1,6 @@
-<h2 class="mb-2 text-lg">Locations with previous availability in the past 24 hours</h2>
+<div class="bg-gray-200 px-2 pb-2 pt-3">
+  <h2 class="mb-2 text-gray-700 text-lg">Locations with previous availability in the past 24 hours</h2>
+</div>
 <div class="py-4 px-6 border-2 border-gray-300 h-96 overflow-y-auto opacity-70 shadow-inner">
   <ul class="space-y-8">
     <% @last_24_hour_locations.each do | location | %>
@@ -13,6 +15,11 @@
             <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
               <%= location.city %>
             </span>
+            <% if location.postal_code? %>
+              <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
+                <%= location.postal_code %>
+              </span>
+            <% end %>
             <% if location.is_drive_thru? %>
               <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
                 Drive-thru
