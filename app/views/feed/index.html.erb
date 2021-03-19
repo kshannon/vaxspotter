@@ -10,7 +10,8 @@
       <li> Follow our Twitter
         <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/VaxSpotter" class="hover:underline italic">(@vaxspotter)</a> 
         account to be notified when we find new appointments</li>
-      <li> Various agencies, providers, and data sources list appointment openings at different times. Check back here often for updated data.</li>
+      <li>Various agencies, providers, and data sources list appointment openings at different times. Check back here often for updated data.</li>
+      <li>Vaccine availibilty changes frequently, click the reservation button to ... blah blah</li>
     </ul>
   </div>
 
@@ -27,13 +28,15 @@
                                                 } %>
   </div>
 
-  <div class="max-w-3xl mx-auto px-4 mt-12">
+  <div class="max-w-3xl mx-auto px-4 mt-16">
     <% if @valid_locations.length == 0 %>
       <%= render partial: 'no_appointments.html' %>
+    <% else %>
+      <%= render partial: 'appointments' %>
     <% end %>
   </div>
 
-  <div class="max-w-3xl mx-auto px-4 mt-8">
+  <div class="max-w-3xl mx-auto px-4 mt-4">
     <ul class="space-y-8">
       <% @valid_locations.each do | location | %>
         <li class="bg-white shadow-md overflow-hidden rounded-md">
@@ -77,13 +80,19 @@
           </div>
 
           <a target="_blank" rel="noopener noreferrer" href=<%= location.appointment_url %> class="self-center">
-            <div class="self-center rounded-b-md bg-blue-100 hover:bg-blue-200 hover:text-blue-900 px-6 py-2">
-              <span class="flex justify-center text-blue-700 text-lg font-medium">Click For Reservation</span>
+            <div class="self-center rounded-b-md bg-blue-600 hover:bg-blue-500 hover:text-white px-6 py-2">
+              <span class="flex justify-center text-white text-lg font-medium">Click For Reservation</span>
             </div>
           </a>
         </li>
       <% end %>
     </ul>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 mt-24">
+    <% if @last_24_hour_locations.length > 0 %>
+      <%= render partial: 'stale_appointments' %>
+    <% end %>
   </div>
 
 
