@@ -1,89 +1,123 @@
 <div class="pb-24">
   <div class="max-w-3xl mx-auto px-4 space-y-3 prose">
     <div>
-      VaxSpotter watches for new and updated Covid-19 vaccination appointments in the San Diego County area.
+      VaxSpotter automatically scans for Covid-19 vaccination appointments in San Diego County at Pharmacies, Hospitals, Clinics and Community Centers.
       <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-pink-200 text-pink-800">
         <%= @last_updated %>
       </span>
     </div>
     <ul class="pl-3 space-y-1">
-      <li> Follow our Twitter
-        <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/VaxSpotter" class="hover:underline italic">(@vaxspotter)</a> 
+      <li> Follow
+        <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/VaxSpotter" class="hover:underline italic"> @vaxspotter </a>
         account to be notified when we find new appointments</li>
-      <li> Various agencies, providers, and data sources list appointment openings at different times. Check back here often for updated data.</li>
+      <li>Vaccines are in high demand, appointment availability can change by the minute. Check each location for latest availability - select [Click For Reservation].</li>
     </ul>
   </div>
 
   <div class="max-w-3xl mx-auto px-4 mt-8">
     <%= render partial: 'shared/notification', locals: {
-                                                  message: "As of 02/27/21, the County of San Diego is only vaccinating people who live or work in San Diego County AND are in Phase 1A or Phase 1B (includes persons age 65 and older).",
+                                                  message: "As of 03/15/21, San Diego County added Phase 1C to vaccine eligibility, people with certain health conditions, disabilities, illness, living spaces, or work environments that put them at higher risk. As of 02/27/21, eligibility includes Phases 1B (people age 65 and older, or in high risk occupations) and Phase 1A (people in front-line and health related occupations).",
                                                   url: "https://www.sandiegocounty.gov/content/sdc/hhsa/programs/phs/community_epidemiology/dc/2019-nCoV/vaccines/phases.html"
                                                 } %>
   </div>
-  <div class="max-w-3xl mx-auto px-4 mt-4">
-    <%= render partial: 'shared/notification', locals: {
-                                                  message: "As of 03/15/21, Phase 1C vaccinations are available to those with certain health conditions, disabilities, illness, living spaces, or work environments that put them at higher risk.",
-                                                  url: "https://www.sandiegocounty.gov/content/dam/sdc/hhsa/programs/phs/Epidemiology/covid19/vaccines/Phase%201B%20Next%20Groups_Who%20is%20Eligible_Medical_Conditions.pdf"
-                                                } %>
-  </div>
 
-  <div class="max-w-3xl mx-auto px-4 mt-12">
+  <div class="max-w-3xl mx-auto px-4 mt-16">
     <% if @valid_locations.length == 0 %>
       <%= render partial: 'no_appointments.html' %>
+    <% else %>
+      <%= render partial: 'appointments' %>
+      <div data-controller="filter" class="mt-8">
+        <h3 class="text-sm text-gray-600">Search Available Locations</h3>
+        <div class="flex space-x-4">
+          <div class="flex-1 min-w-0">
+            <label for="search" class="sr-only">Search</label>
+            <div class="relative rounded-md shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <input
+                data-filter-target="source"
+                data-action="keyup->filter#filter"
+                type="text"
+                name="filterLocations"
+                id="filter"
+                class="py-3 pr-3 block w-full pl-10 sm:text-sm border-gray-300 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+                placeholder="postal code, city, or name"
+              >
+            </div>
+          </div>
+        </div>
+        <div class="max-w-3xl mx-auto mt-4">
+          <ul class="space-y-8">
+            <% @valid_locations.each do | location | %>
+              <li
+                data-filter-target="filterable"
+                data-filter-key='<%= "#{location.postal_code} #{location.city} #{location.managed_by}".downcase %>'
+                class="bg-white shadow-md overflow-hidden rounded-md"
+              >
+                <div class="rounded-t-md px-6 py-4">
+                  <h3 class="text-xl"><%= location.name %></h3>
+                  <p class="text-gray-700 font-light"><%= location.address %></p>
+                  <div class="flex mt-3 space-x-3">
+                    <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
+                      <%= location.managed_by %>
+                    </span>
+                    <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
+                      <%= location.city %>
+                    </span>
+                    <% if location.postal_code? %>
+                      <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
+                        <%= location.postal_code %>
+                      </span>
+                    <% end %>
+                    <% if location.is_drive_thru? %>
+                      <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
+                        Drive-thru
+                      </span>
+                    <% end %>
+                    <% if location.is_walk_thru? %>
+                      <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
+                        Walk-thru
+                      </span>
+                    <% end %>
+                  </div>
+                </div>
+
+                <div class="mt-3 mb-2 px-6 py-2 text-gray-600 space-y-1">
+                  <% @current_appointments.each do | appointment | %>
+                    <% if appointment.location_id == location.id %>
+                      <div class="flex justify-start">
+                        <div class="font-mono pr-3"><%= appointment.date.strftime("%b %d") %></div>
+                        <% if appointment.start_time? %>
+                          <div class="font-mono pr-3">&#8594; <%= appointment.start_time.strftime("%l:%M%P") %></div>
+                        <% end %>
+                        <% if appointment.end_time? %>
+                          <div class="font-mono">- <%= appointment.end_time.strftime("%l:%M%P") %></div>
+                        <% end %>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+
+                <a target="_blank" rel="noopener noreferrer" href=<%= location.appointment_url %> class="self-center">
+                  <div class="self-center rounded-b-md bg-blue-600 hover:bg-blue-500 hover:text-white px-6 py-2">
+                    <span class="flex justify-center text-white text-lg font-medium">Click For Reservation</span>
+                  </div>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     <% end %>
   </div>
 
-  <div class="max-w-3xl mx-auto px-4 mt-8">
-    <ul class="space-y-8">
-      <% @valid_locations.each do | location | %>
-        <li class="bg-white shadow-md overflow-hidden rounded-md">
-          <div class="rounded-t-md px-6 py-4">
-            <h3 class="text-xl"><%= location.name %></h3>
-            <p class="text-gray-700 font-light"><%= location.address %></p>
-            <div class="flex mt-3 space-x-3">
-              <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
-                <%= location.managed_by %>
-              </span>
-              <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
-                <%= location.city %>
-              </span>
-              <% if location.is_drive_thru? %>
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
-                  Drive-thru
-                </span>
-              <% end %>
-              <% if location.is_walk_thru? %>
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
-                  Walk-thru
-                </span>
-              <% end %>
-            </div>
-          </div>
-
-          <div class="mt-3 mb-2 px-6 py-2 text-gray-600 space-y-1">
-            <% @current_appointments.each do | appointment | %>
-              <% if appointment.location_id == location.id %>
-                <div class="flex justify-start">
-                  <div class="font-mono pr-3"><%= appointment.date.strftime("%b %d") %></div>
-                  <% if appointment.start_time? %>
-                    <div class="font-mono pr-3">&#8594; <%= appointment.start_time.strftime("%l:%M%P") %></div>
-                  <% end %>
-                  <% if appointment.end_time? %>
-                    <div class="font-mono">- <%= appointment.end_time.strftime("%l:%M%P") %></div>
-                  <% end %>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-
-          <a target="_blank" rel="noopener noreferrer" href=<%= location.appointment_url %> class="self-center">
-            <div class="self-center rounded-b-md bg-blue-100 hover:bg-blue-200 hover:text-blue-900 px-6 py-2">
-              <span class="flex justify-center text-blue-700 text-lg font-medium">Click For Reservation</span>
-            </div>
-          </a>
-        </li>
-      <% end %>
-    </ul>
+  <div class="max-w-3xl mx-auto px-4 mt-24">
+    <% if @last_24_hour_locations.length > 0 %>
+      <%= render partial: 'stale_appointments' %>
+    <% end %>
   </div>
 
 

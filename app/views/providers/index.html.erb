@@ -1,0 +1,82 @@
+
+
+<div class="px-2 max-w-3xl mx-auto">
+    <h2 class="mb-2">Vaccine Providers We Track</h2>
+  <div class="shadow overflow-y-auto border-b border-gray-200 sm:rounded-lg">
+    <table class="min-w-full divide-y divide-gray-200 table-auto">
+      <thead class="bg-gray-200 sticky">
+        <tr>
+          <th scope="col" class="px-6 py-1 text-left text-xs text-gray-700 uppercase tracking-wider">Provider Source</th>
+          <th scope="col" class="px-6 py-1 text-left text-xs text-gray-700 uppercase tracking-wider">Sites</th>
+          <th scope="col" class="px-6 py-1 text-left text-xs text-gray-700 uppercase tracking-wider">Type</th>
+          <th scope="col" class="px-6 py-1 text-left text-xs text-gray-700 uppercase tracking-wider">Status</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+      <% @vaxspotter_providers.each do |provider| %>
+        <tr>
+          <td class="px-6 py-1 whitespace-nowrap text-xs text-gray-700"><%= provider[:name] %></td>
+          <td class="px-6 py-1 whitespace-nowrap text-xs text-gray-700"><%= provider[:count] %></td>
+          <td class="px-6 py-1 whitespace-nowrap text-xs text-gray-700"><%= provider[:type] %></td>
+          <td class="px-6 py-1 whitespace-nowrap text-xs text-gray-700"><%=  provider[:status] %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="px-2 max-w-3xl mx-auto mt-8 prose">
+  <h2>
+    Pharmacies
+  </h2>
+  <div class="flex my-2 text-sm font-mono">
+    <%= render partial: 'shared/update', locals: {
+                                                  message: "[03/5/21] we are pulling pharmacy data and updating it every ~15 mins.",
+                                                } %>
+  </div>
+  <p>
+    The Federal Retail Pharmacy
+    <a target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline" href="https://www.cdc.gov/vaccines/covid-19/retail-pharmacy-program/index.html"> Program </a>
+    for COVID-19 Vaccination is a collaboration between the federal/state government, and 21 national/independant pharmacy partners networks. The program increase access to the COVID-19 vaccine because the federal government provides vaccines directly to pharmacies. This program supplements the ongoing allocations provided to pharmacies through state and local jurisdictions.
+  </p>
+  <p>
+    Appointment availability is typically updated throughout the day. Each pharmacy chain has their own online scheduling site/process and will check your eligibility to get vaccinated before scheduling. Most national chains do not support in-store scheduling. Make sure you secure an appointment before showing up.
+  </p>
+
+  <h2>
+    Hospitals, Doctor’s Offices & Clinics
+  </h2>
+  <p>
+    Hospitals, your primary care doctor’s office or clinic may offer vaccines through your health insurance system, such as through Kaiser Permanente's
+    <a target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline" href="https://healthy.kaiserpermanente.org/health-wellness/coronavirus-information/covid-vaccine/vaccination-eligibility"> Program.</a>
+  </p>
+  <p>
+    Appointment availability is updated less frequently. Some information may be provided through MyChart systems or in partnership with County health programs. Most do not provide online appointment scheduling. Some providers might communicate with you via email, especially if it is your through your primary care provider. We anticipate more availbility from these providers in the coming months.
+  </p>
+
+  <h2>
+    County & Community Sites
+  </h2>
+  <div class="flex my-2 text-sm font-mono">
+    <%= render partial: 'shared/update', locals: {
+                                                  message: "[WIP] we are working on adding several automated county/community data sources.",
+                                                } %>
+  </div>
+  <p>
+    For those unable to get a vaccination from a healthcare provider, the County of San Diego and it's partners are offering vaccinations to individuals in
+    <a target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline" href="https://www.sandiegocounty.gov/content/sdc/hhsa/programs/phs/community_epidemiology/dc/2019-nCoV/vaccines/phases.html"> eligible priority groups. </a>
+    Neighborhood community centers, public health clinics and vaccination super sites have been organized to vaccinate all eligible groups. Programs and partners include: City of San Diego Vaccination
+    <a target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline" href="https://www.sandiego.gov/covid-19-vaccination"> Program </a>
+    county managed locations through
+    <a target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline" href="https://myturn.ca.gov/"> MyTurn, </a>
+    UC San Diego Health through
+    <a target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline" href="https://health.ucsd.edu/coronavirus/Pages/vaccine.aspx"> MyChart, </a>
+    and Sharp Locations through
+    <a target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline" href="https://www.sharp.com/coronavirus/vaccines.cfm"> PrepMod. </a>
+  </p>
+  <p>
+    Appointments and proof of eligibility are required at all sites. Space is limited and appointments are updated with some regularity throughout the week. Most locations require you to register for appointments at
+    <a target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline" href="https://myturn.ca.gov/"> MyTurn.ca.gov</a>
+  </p>
+</div>

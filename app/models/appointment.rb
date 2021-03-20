@@ -29,8 +29,9 @@ class Appointment < ApplicationRecord
       vaccines_available = ""
     end
 
-    appt_info = "#{self.date.strftime("%b %d")}#{appt_times}#{vaccines_available}"
-    tweet = "#{location.name}\n#{location.address}\n\n#{appt_info}\n\n#{location.appointment_url}"
+    time_now = Time.now.strftime("%l:%M%P")
+    appt_date = "#{self.date.strftime("%b %d")}"
+    tweet = "(#{time_now}) spotted availability at 👇\n\n#{location.name}\n#{location.address}\n\nAppointments on: #{appt_date}\n\nUse the link below to reserve a spot!\n\n#{location.appointment_url}"
 
     if Rails.env.production?
       TweetJob.perform_now(tweet)
