@@ -1,9 +1,6 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  initialize() {
-    console.log('Hello from stimulus!');
-  }
   static targets = [ "source", "filterable" ]
   filter(event) {
     let lowerCaseFilterTerm = this.sourceTarget.value.toLowerCase()
