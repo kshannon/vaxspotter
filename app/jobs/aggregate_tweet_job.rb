@@ -32,7 +32,7 @@ class AggregateTweetJob < ApplicationJob
   def aggregate_appts
     active_record_obj = Location.joins(:appointments)
                                 .select('locations.id, date, name, address, managed_by, appointments.updated_at, postal_code, appointment_url')
-                                .where('appointments.updated_at > ?', 10.minutes.ago)
+                                .where('appointments.updated_at > ?', 10.minutes.ago) #10 to match up with API pull jobs
                                 .where('is_stale = ?', false)
                                 .all
     appointments = active_record_obj.to_a.map(&:serializable_hash)
@@ -55,11 +55,11 @@ class AggregateTweetJob < ApplicationJob
   def generate_tweet_text(hash_to_tweet)
     num_locations = hash_to_tweet[:addresses].uniq.length
     provider = hash_to_tweet[:provider]
-    tweet_line_header = "New appointments for #{num_locations} #{provider} location(s) on the following date(s):\n"
+    tweet_line_header = "🚨 Aggregated Appointment(s) for #{num_locations} #{provider} location(s) 🚨\n"
 
     appt_dates = []
     hash_to_tweet[:dates].each do |date|
-      appt_dates << date.strftime('%A, %b %-m')
+      appt_dates << date.strftime('%A, %b %d')
     end
     tweet_line_dates = "\n#{appt_dates.uniq.join("\n")}\n"
 
@@ -74,8 +74,8 @@ class AggregateTweetJob < ApplicationJob
     tweet_line_url = "\n#{url}\n\n"
 
     relay_station = '@CovaxSd @CovidVaccineSD @VaccineCa #TeamVaccine'
-    tweet_line_footer = "#{relay_station}"
+    tweet_line_footer = "More location details in preceding tweets ⬇️\n#{relay_station}"
 
-    return tweet_line_header + tweet_line_dates + tweet_line_postal_codes + + tweet_line_url + tweet_line_footer
+    return tweet_line_header + tweet_line_dates + tweet_line_postal_codes + tweet_line_url + tweet_line_footer
   end
 end
