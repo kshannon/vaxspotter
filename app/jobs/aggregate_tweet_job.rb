@@ -14,6 +14,7 @@ class AggregateTweetJob < ApplicationJob
   end
 
   def initialize
+    super()
     @aggregate_appts_to_tweet = []
   end
 
