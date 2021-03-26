@@ -59,7 +59,14 @@
               >
                 <div class="rounded-t-md px-6 py-4">
                   <h3 class="text-xl"><%= location.name %></h3>
-                  <p class="text-gray-700 font-light"><%= location.address %></p>
+                  <p class="text-gray-700 font-light hover:underline hover:text-blue-600 inline-block align-middle">
+                    <a target="_blank" rel="noopener noreferrer" href="http://maps.google.com/?q=<%= location.address %>">
+                      <%= location.address %>
+                      <svg class="h-4 w-4 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  </p>
                   <div class="flex mt-3 space-x-3">
                     <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
                       <%= location.managed_by %>
