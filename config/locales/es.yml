@@ -2,18 +2,18 @@ es:
   partials:
     footer:
       message_a: "Built with love using "
-      message_b: " y "
+      message_b: " and "
       message_c: " - inspired by the "
       message_d: " project."
       disclaimer: Disclaimer
     header:
-      home: casa
-      providers: asd
-      news: asd
-      about: asd
-      help: asd
+      home: home
+      providers: providers
+      news: news
+      about: about
+      help: help
     notification:
-      details: Details!
+      details: Details
   static_pages:
     about:
       about_vaxspotter_a: "VaxSpotter tracks San Diego County vaccine locations and appointment availbility in real-time. We post updated appointments on our home page and twitter feed. Please follow our "
@@ -21,8 +21,8 @@ es:
       contact_us: Contact Us
       contact_us_text_a: "VaxSpotter is maintained by "
       contact_us_text_b: " he can be reached at "
-      getting_involved: Getting Involved!!!!!!
-      getting_involved_text_a: "The prdfdoject is on "
+      getting_involved: Getting Involved
+      getting_involved_text_a: "The project is on "
       getting_involved_text_b: " feel free to fork it and use it, or help improve the project!"
       partner_organizations: Partnerships
       partner_organizations_text_a: We are always interested in partnering with technology, healthcare, and government groups. Please reach out!
@@ -97,4 +97,5 @@ es:
       community_sites_text_link_e: PrepMod
       community_sites_text_f: "Appointments and proof of eligibility are required at all sites. Space is limited and appointments are updated with some regularity throughout the week. Most locations require you to register for appointments at "
       community_sites_text_link_f: MyTurn.ca.gov
+
 
