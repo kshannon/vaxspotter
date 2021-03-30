@@ -1,19 +1,19 @@
-en:
+es:
   partials:
     footer:
       message_a: "Built with love using "
-      message_b: " and "
+      message_b: " y "
       message_c: " - inspired by the "
       message_d: " project."
       disclaimer: Disclaimer
     header:
-      home: home
-      providers: providers
-      news: news
-      about: about
-      help: help
+      home: casa
+      providers: asd
+      news: asd
+      about: asd
+      help: asd
     notification:
-      details: Details
+      details: Details!
   static_pages:
     about:
       about_vaxspotter_a: "VaxSpotter tracks San Diego County vaccine locations and appointment availbility in real-time. We post updated appointments on our home page and twitter feed. Please follow our "
@@ -21,14 +21,14 @@ en:
       contact_us: Contact Us
       contact_us_text_a: "VaxSpotter is maintained by "
       contact_us_text_b: " he can be reached at "
-      getting_involved: Getting Involved
-      getting_involved_text_a: "The project is on "
+      getting_involved: Getting Involved!!!!!!
+      getting_involved_text_a: "The prdfdoject is on "
       getting_involved_text_b: " feel free to fork it and use it, or help improve the project!"
       partner_organizations: Partnerships
       partner_organizations_text_a: We are always interested in partnering with technology, healthcare, and government groups. Please reach out!
       partner_organizations_text_b: Proud To Be Working With The Following Groups
     help:
-      page_title: Frequently Asked Questions
+      page_title: "Preguntas Frecuentes (FAQ)"
       question_1: How does VaxSpotter get appointment information?
       answer_1: VaxSpotter follows several government, vaccine information, and healthcare provider websites for appointment data. That data is added to our system and pushed to our Twitter feed throughout the day.
       question_2: Why did you create VaxSpotter?
@@ -47,7 +47,7 @@ en:
       twitter_live_feed_message: Check out this great live Twitter feed on Covid-19 vaccination news!
   feed:
     index:
-      last_updated: "Last Updates:"
+      last_updated: "Última Actualización:"
       welcome_message: VaxSpotter automatically scans for Covid-19 vaccination appointments in San Diego County at Pharmacies, Hospitals, Clinics and Community Centers.
       welcome_message_li_1_a: "Follow "
       welcome_message_li_1_b: " account to be notified when we find new appointments"

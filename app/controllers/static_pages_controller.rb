@@ -9,4 +9,7 @@ class StaticPagesController < ApplicationController
 
   def disclaimer
   end
+
+  def news
+  end
 end

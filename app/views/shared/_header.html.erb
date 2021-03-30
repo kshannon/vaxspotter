@@ -1,13 +1,17 @@
-<div class="flex flex-col mx-auto">
-  <div class="flex justify-center">
-    <h1 class="text-5xl font-semibold mt-12">VaxSpotter</h1>
+<div class="flex flex-col mx-auto max-w-7xl">
+  <div class="flex justify-center mt-12">
+    <h1 class="text-5xl font-semibold">VaxSpotter</h1>
   </div>
-  <nav class="pt-10 pb-8 flex justify-center space-x-6 text-xl font-light text-blue-700">
-    <div><%= link_to "home", "/", class: "hover:underline hover:text-blue-600" %></div>
-    <div><%= link_to "providers", providers_path, method: "get", class: "hover:underline hover:text-blue-600" %></div>
-    <div><%= link_to "news", static_pages_news_path, method: "get", class: "hover:underline hover:text-blue-600" %></div>
-    <div><%= link_to "about", static_pages_about_path, class: "hover:underline hover:text-blue-600" %></div>
-    <div><%= link_to "help", static_pages_help_path, class: "hover:underline hover:text-blue-600" %></div>
+  <div class="flex justify-center space-x-4 pt-4">
+    <div><%= link_to '🇺🇸', root_path(locale: :en) %></div>
+    <div><%= link_to '🇲🇽', root_path(locale: :es) %></div>
+  </div>
+  <nav class="pt-6 pb-8 flex justify-center space-x-6 text-xl font-light text-blue-700">
+    <div class="lowercase"><%= link_to t('partials.header.home'), root_path, class: "hover:underline hover:text-blue-600" %></div>
+    <div class="lowercase"><%= link_to t('partials.header.providers'), providers_path, method: "get", class: "hover:underline hover:text-blue-600" %></div>
+    <div class="lowercase"><%= link_to t('partials.header.news'), static_pages_news_path, method: "get", class: "hover:underline hover:text-blue-600" %></div>
+    <div class="lowercase"><%= link_to t('partials.header.about'), static_pages_about_path, class: "hover:underline hover:text-blue-600" %></div>
+    <div class="lowercase"><%= link_to t('partials.header.help'), static_pages_help_path, class: "hover:underline hover:text-blue-600" %></div>
     <% if session[:current_user] %>
       <div><%= link_to "admin", "/admin", class: "hover:underline hover:text-blue-600" %></div>
       <div><%= link_to "locations", locations_path, method: "get", class: "hover:underline hover:text-blue-600" %></div>

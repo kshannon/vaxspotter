@@ -1,9 +1,38 @@
-<div class="mx-auto pb-8 px-10 prose max-w-prose">
-  <p>VaxSpotter tracks San Diego County vaccine locations and appointment availbility in real-time. We post updated appointments on our home page and twitter feed. Please follow our <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/vaxspotter">@VaxSpotter </a>twitter feed for updates.</p>
-  <h2>Contact Us</h2>
-  <p>VaxSpotter is maintained by <a target="_blank" rel="noopener noreferrer" href="https://www.kmshannon.com">Kyle Shannon, </a>he can be reached at <a href="mailto:vaxspotter@kmshannon.com">vaxspotter@kmshannon.com</a></p>
-  <h2>Getting Involved</h2>
-  <p>The project is on <a target="_blank" rel="noopener noreferrer" href="https://github.com/kshannon/vaxspotter">GitHub, </a>feel free to fork it and use it, or help improve the project!</p>
-  <h2>Partner Organizations</h2>
-  <p>We are always intrested in partnering with technology, healthcare, and government organizations. Please reach out!</p>
+<div class="mx-auto pb-4 px-10 prose max-w-prose">
+  <p>
+    <%= t('.about_vaxspotter_a') %>
+    <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/vaxspotter">@VaxSpotter </a>
+    <%= t('.about_vaxspotter_b') %>
+  </p>
+  <h2><%= t('.contact_us') %></h2>
+  <p>
+    <%= t('.contact_us_text_a') %>
+    <a target="_blank" rel="noopener noreferrer" href="https://www.kmshannon.com">Kyle Shannon,</a>
+    <%= t('.contact_us_text_b') %>
+    <a href="mailto:vaxspotter@kmshannon.com">vaxspotter@kmshannon.com</a>
+  </p>
+  <h2><%= t('.getting_involved') %></h2>
+  <p>
+    <%= t('.getting_involved_text_a') %>
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/kshannon/vaxspotter">GitHub,</a>
+    <%= t('.getting_involved_text_b') %>
+  </p>
+  <h2><%= t('.partner_organizations') %></h2>
+  <p><%= t('.partner_organizations_text_a') %></p>
+</div>
+<div class="max-w-3xl mx-auto py-4 px-4 sm:px-6 lg:py-6 lg:px-8">
+  <p class="text-center text-base font-semibold uppercase text-gray-600 tracking-wider">
+    <%= t('.partner_organizations_text_b') %>
+  </p>
+  <div class="mt-6 grid grid-cols-2 gap-1 md:grid-cols-3 lg:mt-8">
+    <div class="col-span-1 flex flex-col justify-center text-center py-8 px-8 bg-gray-50">
+      San Diego COVID Vaccine Bot <br><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/CovaxSD">@CovaxSD</a>
+    </div>
+    <div class="col-span-1 flex flex-col justify-center py-8 px-8 text-center bg-gray-50">
+      San Diego Vaccine Bot <br><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/CovidVaccineSD">@CovidVaccineSD</a>
+    </div>
+    <div class="col-span-1 flex flex-col justify-center py-8 px-8 text-center bg-gray-50">
+      Find My Vax LA <br><a target="_blank" rel="noopener noreferrer" href="https://www.findmyvaxla.com/">@FindMyVaxLA_Bot</a>
+    </div>
+  </div>
 </div>
