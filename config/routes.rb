@@ -1,5 +1,3 @@
-# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
 Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :new] do
@@ -18,16 +16,18 @@ Rails.application.routes.draw do
     post "new_appointment", to: 'appointments#create'
   end
 
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
-  get 'admin' => 'admin#index'
-  get 'providers' => 'providers#index'
-  # get ':page' => 'pages#show'
-  get  'static_pages/about'
-  get  'static_pages/help'
-  get  'static_pages/disclaimer'
-  get  'static_pages/news'
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
-  root 'feed#index'
+    get 'login' => 'sessions#new'
+    post 'login' => 'sessions#create'
+    get 'admin' => 'admin#index'
+    get 'providers' => 'providers#index'
+    get  'static_pages/about'
+    get  'static_pages/help'
+    get  'static_pages/disclaimer'
+    get  'static_pages/news'
 
+    get '/:locale' => 'feed#index'
+    root 'feed#index'
+  end
 end

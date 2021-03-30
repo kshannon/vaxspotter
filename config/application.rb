@@ -23,5 +23,7 @@ module Vaxspotter
     config.time_zone = "Pacific Time (US & Canada)"
     config.active_record.default_timezone = :utc # Or :local
     # config.eager_load_paths << Rails.root.join("extras")
+    config.i18n.available_locales = [:en, :es]
+    config.i18n.default_locale = :en
   end
 end
