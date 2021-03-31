@@ -56,7 +56,7 @@ class AggregateTweetJob < ApplicationJob
   def generate_tweet_text(hash_to_tweet)
     num_locations = hash_to_tweet[:addresses].uniq.length
     provider = hash_to_tweet[:provider]
-    tweet_line_header = "🚨 Aggregated Appt(s) for #{num_locations} #{provider} Loc(s) 🚨\n"
+    tweet_line_header = "✨ Aggregated Appt(s) for #{num_locations} #{provider} Loc(s)\n"
 
     appt_dates = []
     hash_to_tweet[:dates].each do |date|
@@ -74,7 +74,7 @@ class AggregateTweetJob < ApplicationJob
     url = hash_to_tweet[:urls].uniq[0] #first url is fine
     tweet_line_url = "\n#{url}\n\n"
 
-    relay_station = '@CovaxSd #TeamVaccine'
+    relay_station = '#TeamVaccine'
     tweet_line_footer = "#{relay_station}"
 
     return tweet_line_header + tweet_line_dates + tweet_line_postal_codes + tweet_line_url + tweet_line_footer
