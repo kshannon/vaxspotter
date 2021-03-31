@@ -26,8 +26,12 @@ gem 'turbolinks', '~> 5'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'rails-i18n'
 gem "twitter", "~> 7.0"
 gem 'active_hash'
+# gem 'kimurai'
+# gem 'nokogiri'
+# gem 'open-uri'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

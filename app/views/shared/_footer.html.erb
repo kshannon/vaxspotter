@@ -3,7 +3,7 @@
   <div class="flex flex-col items-center">
     <p class="mt-2 px-4 italic text-base md:text-base text-gray-600 text-center">
       <small>
-        Built with love using
+        <%= t('partials.footer.message_a') %>
         <a
           class="text-red-400 hover:underline font-medium"
           target="_blank"
@@ -12,7 +12,7 @@
         >
           Ruby on Rails
         </a>
-        and
+        <%= t('partials.footer.message_b') %>
         <a
           class="text-blue-400 hover:underline font-medium"
           target="_blank"
@@ -21,7 +21,7 @@
         >
           TailwindCSS
         </a>
-        - inspired by the
+        <%= t('partials.footer.message_c') %>
         <a
           class="text-purple-400 hover:underline font-medium"
           target="_blank"
@@ -30,12 +30,12 @@
         >
           TurboVax
         </a>
-        project.
+        <%= t('partials.footer.message_d') %>
       </small>
     </p>
     <p class="mt-2 italic text-md md:text-md text-gray-600">
       <small>
-        <%= link_to "Disclaimer", static_pages_disclaimer_path, class: "hover:text-blue-600 font-medium underline" %>
+        <%= link_to t('partials.footer.disclaimer'), static_pages_disclaimer_path, class: "hover:text-blue-600 font-medium underline" %>
       </small>
     </p>
   </div>

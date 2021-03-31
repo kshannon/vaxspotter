@@ -1,0 +1,101 @@
+es:
+  partials:
+    footer:
+      message_a: "Construido con amor usando "
+      message_b: " y "
+      message_c: " - inspirado por el "
+      message_d: " proyecto."
+      disclaimer: Descargo de Responsabilidad
+    header:
+      home: vaxspotter
+      providers: proveedores
+      news: noticias
+      about: información
+      help: ayuda
+    notification:
+      details: Detalles
+  static_pages:
+    about:
+      about_vaxspotter_a: "VaxSpotter encuentra sitios de vacunas y disponibilidad de citas en tiempo real para el condado de San Diego. Publicamos citas actualizadas en nuestra página principal y en Twitter. Por favor siga nuestro "
+      about_vaxspotter_b: " Twitter para noticias sobre la disponibilidad de vacunas en el condado de San Diego."
+      contact_us: Conéctate con nosotros
+      contact_us_text_a: "VaxSpotter es mantenido por "
+      contact_us_text_b: " se le puede contactar en "
+      getting_involved: Involucrarse
+      getting_involved_text_a: "El proyecto esta en "
+      getting_involved_text_b: " ¡Siéntete libre de usarlo o ayuda a mejorar el proyecto!"
+      partner_organizations: Asociaciones
+      partner_organizations_text_a: "Siempre estamos interesados en asociarnos con grupos tecnológicos, sanitarios y gubernamentales. ¡Comuníquese!"
+      partner_organizations_text_b: Orgulloso de estar trabajando con los siguientes grupos
+    help:
+      page_title: "Preguntas Frecuentes (FAQ)"
+      question_1: "¿Cómo obtiene VaxSpotter información sobre citas para vacunas?"
+      answer_1: VaxSpotter sigue varios sitios web gubernamentales, de información sobre vacunas y de proveedores de atención médica para obtener datos sobre citas. Esa información se agrega a nuestro sistema y se envía a nuestro feed de Twitter durante el día.
+      question_2: "¿Por qué creaste VaxSpotter?"
+      answer_2a: "Había estado analizando los datos de las citas en California y me di cuenta de que había algunas fallas en la forma en que las personas encontraban información confiable sobre las vacunas. Busqué en línea y hablé con amigos y alguien me indicó a Huge Ma's "
+      answer_2_link_a: TurboVax
+      answer_2b: " proyecto en Nueva York. Usé su concepto como inspiración para construir VaxSpotter."
+      question_3: "¿Se puede usar VaxSpotter en otros estados / condados?"
+      answer_3: "Sí, creé esta aplicación web para que fuera flexible y no dependiera de la región. Si hay alguien que quiera usarlo, puede obtener la información en Github. Está disponible gratuitamente. El enlace de Github está en la página de información. Estoy más que feliz de organizar una reunión y guiar a alguien si está interesado en replicar este proyecto para su comunidad."
+      question_4: "¿VaxSpotter estará disponible en otros idiomas?"
+      answer_4: Sí, actualmente contamos con inglés y español. Si desea ayudar a agregar otro idioma, comuníquese con nosotros.
+      question_5: "¿Hay un GoFundMe, Venmo, Paypal, etc.?"
+      answer_5a: "En el espíritu del proyecto Huge Mas ... Agradezco la generosidad, pero no me importa afrontar los costos de este proyecto. Si se siente dispuesto a ayudar, considere donar a "
+      answer_5_link_a: The Volunteer Transportation Center (El Centro de Transporte de Voluntarios).
+      answer_5b: " Hacen un trabajo increíble en las zonas rurales del norte del estado de Nueva York para ayudar a las personas sin transporte a llegar a citas médicas para salvar vidas."
+    news:
+      twitter_live_feed_message: "¡Echa un vistazo a esta excelente transmisión en vivo de Twitter sobre las noticias sobre la vacunación contra Covid-19!"
+  feed:
+    index:
+      last_updated: "Última Actualización:"
+      welcome_message: VaxSpotter escanea automáticamente las citas de vacunación Covid-19 en el condado de San Diego en farmacias, hospitales, clínicas y centros comunitarios.
+      welcome_message_li_1_a: "Síganos "
+      welcome_message_li_1_b: " cuenta para ser notificado cuando encontremos nuevas citas"
+      welcome_message_li_2: "Las vacunas tienen una gran demanda, la disponibilidad de citas puede cambiar minuto a minuto. Compruebe cada ubicación para conocer la disponibilidad más reciente: seleccione [Haga clic para reservar]."
+      info_message: "A partir del 15 de marzo, el condado de San Diego agregó la Fase 1C a la elegibilidad para vacunas, personas con ciertas condiciones de salud, discapacidades, enfermedades, espacios de vida o entornos de trabajo que los ponen en mayor riesgo. A partir del 27 de febrero de 2021, la elegibilidad incluye la Fase 1B (personas de 65 años o más, o en ocupaciones de alto riesgo) y la Fase 1A (personas en ocupaciones de primera línea y relacionadas con la salud)."
+      search_label: Buscar sitios con citas disponibles
+      search_placeholder: "Buscar..."
+      search_no_results_message: Su búsqueda no produjo resultados.
+      new_appointments_message: "Nueva disponibilidad detectada (actualizado cada 10 minutos, notificado en Twitter)"
+      no_appointments_message: "No hay disponibilidad detectada. Vuelve pronto, actualizamos cada ~ 10 minutos."
+      new_appt_card_button: Haga Clic Para Reservar
+      new_appt_card_drivethru: Auto-servicio
+      new_appt_card_walkthru: Caminar a través
+      stale_appointment_message: Ubicaciones con disponibilidad previa en las últimas 24 horas
+      stale_appt_card_button: Reserva Ya No Está Disponible
+      stale_appt_card_drivethru: Auto-servicio
+      stale_appt_card_walkthru: Caminar a través
+  providers:
+    index:
+      vaccine_providers_we_track: Proveedores de vacunas que seguimos
+      table_header_provider_source : Fuente del proveedor
+      table_header_sites : Sitios
+      table_header_type : Tipo
+      table_header_status : Estado
+      pharmacies_h2: Farmacias
+      pharmacies_message: "[5 de marzo de 2021] Estamos extrayendo datos de farmacias y actualizándolos cada ~ 10 minutos."
+      pharmacies_text_a: La farmacia minorista federal
+      pharmacies_text_link_a: Programa
+      pharmacies_text_b: "para la vacunación COVID-19 es una colaboración entre el gobierno federal / estatal y 21 redes de farmacias asociadas nacionales / independientes. El programa aumenta el acceso a la vacuna COVID-19 porque el gobierno federal proporciona las vacunas directamente a las farmacias. Este programa complementa las asignaciones en curso proporcionadas a las farmacias a través de las jurisdicciones estatales y locales."
+      pharmacies_text_c: "La disponibilidad de citas generalmente se actualiza a lo largo del día. Cada cadena de farmacias tiene su propio sitio / proceso de programación en línea y verificará su elegibilidad para vacunarse antes de programar. La mayoría de las cadenas nacionales no admiten concertar una cita en persona. Asegúrese de tener una cita antes de presentarse."
+      hospitals_clinics_h2: Hospitales, consultorios médicos y clínicas
+      hospitals_clinics_message: 
+      hospitals_clinics_text_a: Los hospitales, el consultorio o la clínica de su médico de atención primaria pueden ofrecer vacunas a través de su sistema de seguro médico, como a través de Kaiser Permanente's
+      hospitals_clinics_link: Programa.
+      hospitals_clinics_text_b: "La disponibilidad de citas se actualiza con menos frecuencia. Parte de la información se puede proporcionar a través de los sistemas MyChart o en asociación con los programas de salud del condado. La mayoría no ofrece programación de citas en línea. Algunos proveedores pueden comunicarse con usted por correo electrónico, especialmente si es a través de su proveedor de atención primaria. Anticipamos una mayor disponibilidad de estos proveedores en los próximos meses."
+      community_sites_h2: Sitios del condado y de la comunidad
+      community_sites_message: "[WIP] estamos trabajando para agregar varias fuentes de datos automatizadas del condado / comunidad,"
+      community_sites_text_a: "Para aquellos que no pueden recibir una vacuna de un proveedor de atención médica, el condado de San Diego y sus socios están ofreciendo vacunas a las personas en "
+      community_sites_text_link_a: grupos de prioridad elegibles.
+      community_sites_text_b: " Se han organizado centros comunitarios de barrio, clínicas de salud pública y super sitios de vacunación para vacunar a todos los grupos elegibles. Los programas y socios incluyen: Vacunación de la ciudad de San Diego "
+      community_sites_text_link_b: Programa
+      community_sites_text_c: " ubicaciones administradas por el condado a través de "
+      community_sites_text_link_c: MyTurn,
+      community_sites_text_d: " UC San Diego Health a través "
+      community_sites_text_link_d: MyChart,
+      community_sites_text_e: " y Sharp sitios a través de "
+      community_sites_text_link_e: PrepMod
+      community_sites_text_f: "Se requieren citas y prueba de elegibilidad en todos los sitios. El espacio es limitado y las citas se actualizan con cierta regularidad durante la semana. La mayoría de las ubicaciones requieren que se registre para las citas en "
+      community_sites_text_link_f: MyTurn.ca.gov
+
+

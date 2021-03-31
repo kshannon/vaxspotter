@@ -1,33 +1,35 @@
 <div class="pb-24">
   <div class="max-w-3xl mx-auto px-4 space-y-3 prose">
     <div>
-      VaxSpotter automatically scans for Covid-19 vaccination appointments in San Diego County at Pharmacies, Hospitals, Clinics and Community Centers.
+      <%= t('.welcome_message') %>
       <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-pink-200 text-pink-800">
-        <%= @last_updated %>
+        <%= t('.last_updated') %><%= @last_updated %>
       </span>
     </div>
     <ul class="pl-3 space-y-1">
-      <li> Follow
+      <li>
+        <%= t('.welcome_message_li_1_a') %>
         <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/VaxSpotter" class="hover:underline italic"> @vaxspotter </a>
-        account to be notified when we find new appointments</li>
-      <li>Vaccines are in high demand, appointment availability can change by the minute. Check each location for latest availability - select [Click For Reservation].</li>
+        <%= t('.welcome_message_li_1_b') %>
+      </li>
+      <li><%= t('.welcome_message_li_2') %></li>
     </ul>
   </div>
 
   <div class="max-w-3xl mx-auto px-4 mt-8">
     <%= render partial: 'shared/notification', locals: {
-                                                  message: "As of 03/15/21, San Diego County added Phase 1C to vaccine eligibility, people with certain health conditions, disabilities, illness, living spaces, or work environments that put them at higher risk. As of 02/27/21, eligibility includes Phases 1B (people age 65 and older, or in high risk occupations) and Phase 1A (people in front-line and health related occupations).",
+                                                  message: t('.info_message'),
                                                   url: "https://www.sandiegocounty.gov/content/sdc/hhsa/programs/phs/community_epidemiology/dc/2019-nCoV/vaccines/phases.html"
                                                 } %>
   </div>
 
   <div class="max-w-3xl mx-auto px-4 mt-16">
     <% if @valid_locations.length == 0 %>
-      <%= render partial: 'no_appointments.html' %>
+      <%= render partial: 'no_appointments.html', locals: { text: t('.no_appointments_message'),} %>
     <% else %>
-      <%= render partial: 'appointments' %>
+      <%= render partial: 'appointments', locals: { text: t('.new_appointments_message'),} %>
       <div data-controller="filter" class="mt-8">
-        <h3 class="text-sm text-gray-600">Search Locations With Available Appointments</h3>
+        <h3 class="text-sm text-gray-600"><%= t('.search_label') %></h3>
         <div class="flex space-x-4">
           <div class="flex-1 min-w-0">
             <label for="search" class="sr-only">Search</label>
@@ -44,12 +46,13 @@
                 name="filterLocations"
                 id="filter"
                 class="py-3 pr-3 block w-full pl-10 sm:text-sm border-gray-300 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
-                placeholder="postal code, city, or name"
+                placeholder=<%= t('.search_placeholder') %>
               >
             </div>
           </div>
         </div>
         <div class="max-w-3xl mx-auto mt-4">
+          <div data-filter-target="no-search-results" class="hidden"><%= t('.search_no_results_message') %></div>
           <ul class="space-y-8">
             <% @valid_locations.each do | location | %>
               <li
@@ -81,12 +84,12 @@
                     <% end %>
                     <% if location.is_drive_thru? %>
                       <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
-                        Drive-thru
+                        <%= t('.new_appt_card_drivethru') %>
                       </span>
                     <% end %>
                     <% if location.is_walk_thru? %>
                       <span class="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-200 text-yellow-800">
-                        Walk-thru
+                        <%= t('.new_appt_card_walkthru') %>
                       </span>
                     <% end %>
                   </div>
@@ -110,7 +113,7 @@
 
                 <a target="_blank" rel="noopener noreferrer" href=<%= location.appointment_url %> class="self-center">
                   <div class="self-center rounded-b-md bg-blue-600 hover:bg-blue-500 hover:text-white px-6 py-2">
-                    <span class="flex justify-center text-white text-lg font-medium">Click For Reservation</span>
+                    <span class="flex justify-center text-white text-lg font-medium"><%= t('.new_appt_card_button') %></span>
                   </div>
                 </a>
               </li>
@@ -123,7 +126,12 @@
 
   <div class="max-w-3xl mx-auto px-4 mt-24">
     <% if @last_24_hour_locations.length > 0 %>
-      <%= render partial: 'stale_appointments' %>
+      <%= render partial: 'stale_appointments', locals: {
+                                                          stale_appt_msg: t('.stale_appointment_message'),
+                                                          card_button: t('.stale_appt_card_button'),
+                                                          drive_thru: t('.stale_appt_card_drivethru'),
+                                                          walk_thru: t('.stale_appt_card_walkthru'),
+                                                        } %>
     <% end %>
   </div>
 

@@ -9,8 +9,7 @@ class FeedController < ApplicationController
     @last_24_hour__appointments = Appointment.where("created_at > ?", 24.hours.ago).where("is_stale = ?", true).order("date DESC")
 
     if Appointment.exists?
-      updated = Appointment.order("created_at").last.created_at.strftime("%m/%d @ %I:%M %p")
-      @last_updated = "Last Updated: #{updated}"
+      @last_updated = Appointment.order("created_at").last.created_at.strftime("%m/%d @ %I:%M %p")
     else
       @last_updated = "No Updates Yet."
     end
