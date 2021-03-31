@@ -1,101 +1,101 @@
 es:
   partials:
     footer:
-      message_a: "Built with love using "
-      message_b: " and "
-      message_c: " - inspired by the "
-      message_d: " project."
-      disclaimer: Disclaimer
+      message_a: "Construido con amor usando "
+      message_b: " y "
+      message_c: " - inspirado por el "
+      message_d: " proyecto."
+      disclaimer: Descargo de Responsabilidad
     header:
-      home: home
-      providers: providers
-      news: news
-      about: about
-      help: help
+      home: vaxspotter
+      providers: proveedores
+      news: noticias
+      about: información
+      help: ayuda
     notification:
-      details: Details
+      details: Detalles
   static_pages:
     about:
-      about_vaxspotter_a: "VaxSpotter tracks San Diego County vaccine locations and appointment availbility in real-time. We post updated appointments on our home page and twitter feed. Please follow our "
-      about_vaxspotter_b: " twitter feed for updates."
-      contact_us: Contact Us
-      contact_us_text_a: "VaxSpotter is maintained by "
-      contact_us_text_b: " he can be reached at "
-      getting_involved: Getting Involved
-      getting_involved_text_a: "The project is on "
-      getting_involved_text_b: " feel free to fork it and use it, or help improve the project!"
-      partner_organizations: Partnerships
-      partner_organizations_text_a: We are always interested in partnering with technology, healthcare, and government groups. Please reach out!
-      partner_organizations_text_b: Proud To Be Working With The Following Groups
+      about_vaxspotter_a: "VaxSpotter encuentra sitios de vacunas y disponibilidad de citas en tiempo real para el condado de San Diego. Publicamos citas actualizadas en nuestra página principal y en Twitter. Por favor siga nuestro "
+      about_vaxspotter_b: " Twitter para noticias sobre la disponibilidad de vacunas en el condado de San Diego."
+      contact_us: Conéctate con nosotros
+      contact_us_text_a: "VaxSpotter es mantenido por "
+      contact_us_text_b: " se le puede contactar en "
+      getting_involved: Involucrarse
+      getting_involved_text_a: "El proyecto esta en "
+      getting_involved_text_b: " ¡Siéntete libre de usarlo o ayuda a mejorar el proyecto!"
+      partner_organizations: Asociaciones
+      partner_organizations_text_a: "Siempre estamos interesados en asociarnos con grupos tecnológicos, sanitarios y gubernamentales. ¡Comuníquese!"
+      partner_organizations_text_b: Orgulloso de estar trabajando con los siguientes grupos
     help:
       page_title: "Preguntas Frecuentes (FAQ)"
-      question_1: How does VaxSpotter get appointment information?
-      answer_1: VaxSpotter follows several government, vaccine information, and healthcare provider websites for appointment data. That data is added to our system and pushed to our Twitter feed throughout the day.
-      question_2: Why did you create VaxSpotter?
-      answer_2a: "I had been analyzing appointment data in California and realized there were gaps in how people found reliable appointment/vaccination information. I searched online and spoke with friends and someone pointed me to Huge Ma's "
+      question_1: "¿Cómo obtiene VaxSpotter información sobre citas para vacunas?"
+      answer_1: VaxSpotter sigue varios sitios web gubernamentales, de información sobre vacunas y de proveedores de atención médica para obtener datos sobre citas. Esa información se agrega a nuestro sistema y se envía a nuestro feed de Twitter durante el día.
+      question_2: "¿Por qué creaste VaxSpotter?"
+      answer_2a: "Había estado analizando los datos de las citas en California y me di cuenta de que había algunas fallas en la forma en que las personas encontraban información confiable sobre las vacunas. Busqué en línea y hablé con amigos y alguien me indicó a Huge Ma's "
       answer_2_link_a: TurboVax
-      answer_2b: " project in NYC. I used his concept as inspiration to build VaxSpotter."
-      question_3: Can VaxSpotter be used in other locations/counties?
-      answer_3: Yes, I built this web app to be flexible and region agnostic. If there is someone that wants to use it, they can grab the source code on Github. It is freely available. The Github link is on the About page. I am more than happy to set up a meeting and walk someone through the codebase.
-      question_4: Will VaxSpotter be available in other languages?
-      answer_4: Yes, currently we provide English and Spanish. If you would like to help add another language, please get in contact with us.
-      question_5: Is there a GoFundMe, Venmo, Paypal, etc?
-      answer_5a: "In the spirit of Huge Mas project... I appreciate the generosity, but hosting costs are currently not breaking the bank. If you feel inclined to help, please consider donating to "
-      answer_5_link_a: The Volunteer Transportation Center.
-      answer_5b: " They do amazing work in rural upstate New York to help people without transportation reach life saving/sustaining medical appointments."
+      answer_2b: " proyecto en Nueva York. Usé su concepto como inspiración para construir VaxSpotter."
+      question_3: "¿Se puede usar VaxSpotter en otros estados / condados?"
+      answer_3: "Sí, creé esta aplicación web para que fuera flexible y no dependiera de la región. Si hay alguien que quiera usarlo, puede obtener la información en Github. Está disponible gratuitamente. El enlace de Github está en la página de información. Estoy más que feliz de organizar una reunión y guiar a alguien si está interesado en replicar este proyecto para su comunidad."
+      question_4: "¿VaxSpotter estará disponible en otros idiomas?"
+      answer_4: Sí, actualmente contamos con inglés y español. Si desea ayudar a agregar otro idioma, comuníquese con nosotros.
+      question_5: "¿Hay un GoFundMe, Venmo, Paypal, etc.?"
+      answer_5a: "En el espíritu del proyecto Huge Mas ... Agradezco la generosidad, pero no me importa afrontar los costos de este proyecto. Si se siente dispuesto a ayudar, considere donar a "
+      answer_5_link_a: The Volunteer Transportation Center (El Centro de Transporte de Voluntarios).
+      answer_5b: " Hacen un trabajo increíble en las zonas rurales del norte del estado de Nueva York para ayudar a las personas sin transporte a llegar a citas médicas para salvar vidas."
     news:
-      twitter_live_feed_message: Check out this great live Twitter feed on Covid-19 vaccination news!
+      twitter_live_feed_message: "¡Echa un vistazo a esta excelente transmisión en vivo de Twitter sobre las noticias sobre la vacunación contra Covid-19!"
   feed:
     index:
       last_updated: "Última Actualización:"
-      welcome_message: VaxSpotter automatically scans for Covid-19 vaccination appointments in San Diego County at Pharmacies, Hospitals, Clinics and Community Centers.
-      welcome_message_li_1_a: "Follow "
-      welcome_message_li_1_b: " account to be notified when we find new appointments"
-      welcome_message_li_2: "Vaccines are in high demand, appointment availability can change by the minute. Check each location for latest availability - select [Click For Reservation]."
-      info_message: "As of 03/15/21, San Diego County added Phase 1C to vaccine eligibility, people with certain health conditions, disabilities, illness, living spaces, or work environments that put them at higher risk. As of 02/27/21, eligibility includes Phases 1B (people age 65 and older, or in high risk occupations) and Phase 1A (people in front-line and health related occupations)."
-      search_label: Search Locations With Available Appointments
-      search_placeholder: "Search..."
-      search_no_results_message: Your Search Returned No Results.
-      new_appointments_message: "New Availability Spotted (updated every 10 minutes, notified on Twitter)"
-      no_appointments_message: "No availability spotted. Check back soon, we update every ~10 minutes."
-      new_appt_card_button: Click For Reservation
-      new_appt_card_drivethru: Drive-thru
-      new_appt_card_walkthru: Walk-thru
-      stale_appointment_message: Locations with previous availability in the past 24 hours
-      stale_appt_card_button: Reservation No Longer Available
-      stale_appt_card_drivethru: Drive-thru
-      stale_appt_card_walkthru: Walk-thru
+      welcome_message: VaxSpotter escanea automáticamente las citas de vacunación Covid-19 en el condado de San Diego en farmacias, hospitales, clínicas y centros comunitarios.
+      welcome_message_li_1_a: "Síganos "
+      welcome_message_li_1_b: " cuenta para ser notificado cuando encontremos nuevas citas"
+      welcome_message_li_2: "Las vacunas tienen una gran demanda, la disponibilidad de citas puede cambiar minuto a minuto. Compruebe cada ubicación para conocer la disponibilidad más reciente: seleccione [Haga clic para reservar]."
+      info_message: "A partir del 15 de marzo, el condado de San Diego agregó la Fase 1C a la elegibilidad para vacunas, personas con ciertas condiciones de salud, discapacidades, enfermedades, espacios de vida o entornos de trabajo que los ponen en mayor riesgo. A partir del 27 de febrero de 2021, la elegibilidad incluye la Fase 1B (personas de 65 años o más, o en ocupaciones de alto riesgo) y la Fase 1A (personas en ocupaciones de primera línea y relacionadas con la salud)."
+      search_label: Buscar sitios con citas disponibles
+      search_placeholder: "Buscar..."
+      search_no_results_message: Su búsqueda no produjo resultados.
+      new_appointments_message: "Nueva disponibilidad detectada (actualizado cada 10 minutos, notificado en Twitter)"
+      no_appointments_message: "No hay disponibilidad detectada. Vuelve pronto, actualizamos cada ~ 10 minutos."
+      new_appt_card_button: Haga Clic Para Reservar
+      new_appt_card_drivethru: Auto-servicio
+      new_appt_card_walkthru: Caminar a través
+      stale_appointment_message: Ubicaciones con disponibilidad previa en las últimas 24 horas
+      stale_appt_card_button: Reserva Ya No Está Disponible
+      stale_appt_card_drivethru: Auto-servicio
+      stale_appt_card_walkthru: Caminar a través
   providers:
     index:
-      vaccine_providers_we_track: Vaccine Providers We Track
-      table_header_provider_source : Provider Source
-      table_header_sites : Sites
-      table_header_type : Type
-      table_header_status : Status
-      pharmacies_h2: Pharmacies
-      pharmacies_message: "[03/5/21] we are pulling pharmacy data and updating it every ~10 mins."
-      pharmacies_text_a: The Federal Retail Pharmacy
-      pharmacies_text_link_a: Program
-      pharmacies_text_b: for COVID-19 Vaccination is a collaboration between the federal/state government, and 21 national/independent pharmacy partners networks. The program increase access to the COVID-19 vaccine because the federal government provides vaccines directly to pharmacies. This program supplements the ongoing allocations provided to pharmacies through state and local jurisdictions.
-      pharmacies_text_c: Appointment availability is typically updated throughout the day. Each pharmacy chain has their own online scheduling site/process and will check your eligibility to get vaccinated before scheduling. Most national chains do not support in-store scheduling. Make sure you secure an appointment before showing up.
-      hospitals_clinics_h2: Hospitals, Doctor’s Offices & Clinics
+      vaccine_providers_we_track: Proveedores de vacunas que seguimos
+      table_header_provider_source : Fuente del proveedor
+      table_header_sites : Sitios
+      table_header_type : Tipo
+      table_header_status : Estado
+      pharmacies_h2: Farmacias
+      pharmacies_message: "[5 de marzo de 2021] Estamos extrayendo datos de farmacias y actualizándolos cada ~ 10 minutos."
+      pharmacies_text_a: La farmacia minorista federal
+      pharmacies_text_link_a: Programa
+      pharmacies_text_b: "para la vacunación COVID-19 es una colaboración entre el gobierno federal / estatal y 21 redes de farmacias asociadas nacionales / independientes. El programa aumenta el acceso a la vacuna COVID-19 porque el gobierno federal proporciona las vacunas directamente a las farmacias. Este programa complementa las asignaciones en curso proporcionadas a las farmacias a través de las jurisdicciones estatales y locales."
+      pharmacies_text_c: "La disponibilidad de citas generalmente se actualiza a lo largo del día. Cada cadena de farmacias tiene su propio sitio / proceso de programación en línea y verificará su elegibilidad para vacunarse antes de programar. La mayoría de las cadenas nacionales no admiten concertar una cita en persona. Asegúrese de tener una cita antes de presentarse."
+      hospitals_clinics_h2: Hospitales, consultorios médicos y clínicas
       hospitals_clinics_message: 
-      hospitals_clinics_text_a: Hospitals, your primary care doctor’s office or clinic may offer vaccines through your health insurance system, such as through Kaiser Permanente's
-      hospitals_clinics_link: Program.
-      hospitals_clinics_text_b: Appointment availability is updated less frequently. Some information may be provided through MyChart systems or in partnership with County health programs. Most do not provide online appointment scheduling. Some providers might communicate with you via email, especially if it is your through your primary care provider. We anticipate more availability from these providers in the coming months.
-      community_sites_h2: County & Community Sites
-      community_sites_message: "[WIP] we are working on adding several automated county/community data sources."
-      community_sites_text_a: "For those unable to get a vaccination from a healthcare provider, the County of San Diego and it's partners are offering vaccinations to individuals in "
-      community_sites_text_link_a: eligible priority groups.
-      community_sites_text_b: " Neighborhood community centers, public health clinics and vaccination super sites have been organized to vaccinate all eligible groups. Programs and partners include: City of San Diego Vaccination "
-      community_sites_text_link_b: Program
-      community_sites_text_c: " county managed locations through "
+      hospitals_clinics_text_a: Los hospitales, el consultorio o la clínica de su médico de atención primaria pueden ofrecer vacunas a través de su sistema de seguro médico, como a través de Kaiser Permanente's
+      hospitals_clinics_link: Programa.
+      hospitals_clinics_text_b: "La disponibilidad de citas se actualiza con menos frecuencia. Parte de la información se puede proporcionar a través de los sistemas MyChart o en asociación con los programas de salud del condado. La mayoría no ofrece programación de citas en línea. Algunos proveedores pueden comunicarse con usted por correo electrónico, especialmente si es a través de su proveedor de atención primaria. Anticipamos una mayor disponibilidad de estos proveedores en los próximos meses."
+      community_sites_h2: Sitios del condado y de la comunidad
+      community_sites_message: "[WIP] estamos trabajando para agregar varias fuentes de datos automatizadas del condado / comunidad,"
+      community_sites_text_a: "Para aquellos que no pueden recibir una vacuna de un proveedor de atención médica, el condado de San Diego y sus socios están ofreciendo vacunas a las personas en "
+      community_sites_text_link_a: grupos de prioridad elegibles.
+      community_sites_text_b: " Se han organizado centros comunitarios de barrio, clínicas de salud pública y super sitios de vacunación para vacunar a todos los grupos elegibles. Los programas y socios incluyen: Vacunación de la ciudad de San Diego "
+      community_sites_text_link_b: Programa
+      community_sites_text_c: " ubicaciones administradas por el condado a través de "
       community_sites_text_link_c: MyTurn,
-      community_sites_text_d: " UC San Diego Health through "
+      community_sites_text_d: " UC San Diego Health a través "
       community_sites_text_link_d: MyChart,
-      community_sites_text_e: " and Sharp Locations through "
+      community_sites_text_e: " y Sharp sitios a través de "
       community_sites_text_link_e: PrepMod
-      community_sites_text_f: "Appointments and proof of eligibility are required at all sites. Space is limited and appointments are updated with some regularity throughout the week. Most locations require you to register for appointments at "
+      community_sites_text_f: "Se requieren citas y prueba de elegibilidad en todos los sitios. El espacio es limitado y las citas se actualizan con cierta regularidad durante la semana. La mayoría de las ubicaciones requieren que se registre para las citas en "
       community_sites_text_link_f: MyTurn.ca.gov
 
 
