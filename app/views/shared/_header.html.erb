@@ -2,9 +2,9 @@
   <div class="flex justify-center mt-12">
     <h1 class="text-5xl font-semibold">VaxSpotter</h1>
   </div>
-  <div class="flex justify-center space-x-4 pt-4">
-    <div><%= link_to '🇺🇸', root_path(locale: :en) %></div>
-    <div><%= link_to '🇲🇽', root_path(locale: :es) %></div>
+  <div class="flex justify-center text-xs space-x-4 pt-6">
+    <div class="hover:underline hover:text-blue-600 "><%= link_to 'English', root_path(locale: :en) %></div>
+    <div class="hover:underline hover:text-blue-600 "><%= link_to 'Español', root_path(locale: :es) %></div>
   </div>
   <nav class="pt-6 pb-8 flex justify-center space-x-6 text-xl font-light text-blue-700">
     <div class="lowercase"><%= link_to t('partials.header.home'), root_path, class: "hover:underline hover:text-blue-600" %></div>
